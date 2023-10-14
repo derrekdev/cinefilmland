@@ -14,7 +14,7 @@ export default async function Home() {
   return (
     <main className="pt-32">
       <HomeHero />
-      <section className="container flex min-h-screen flex-col items-center justify-between p-24 ">
+      <section className="container flex min-h-screen flex-col items-center justify-between p-10 ">
         <HomeBlock data={dataList} />
       </section>
     </main>

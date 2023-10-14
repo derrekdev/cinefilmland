@@ -8,7 +8,7 @@ export default function Home({ data }: { data: any }) {
   console.log("data", data);
 
   return (
-    <section className="bg-red-300 w-full h-[50vh]">
+    <section className=" w-full h-[50vh]">
       testing
       {/* <section className="text-white body-font">
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
