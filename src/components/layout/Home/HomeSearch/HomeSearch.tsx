@@ -1,4 +1,4 @@
-import HomeSectionLayout from "../element/HomeSectionLayout";
+import HomeSectionLayout from "../../element/HomeSectionLayout";
 
 export default function HomeSearch() {
   return <HomeSectionLayout>Search Here</HomeSectionLayout>;
