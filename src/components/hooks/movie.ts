@@ -7,11 +7,11 @@ const options = {
   },
 };
 
-export async function fetchData(url: string) {
+export async function fetchData(url: string, addedOption?: any) {
   const res = await fetch(
     `${process.env.API_URL}${url}`,
     // "https://api.themoviedb.org/3/",
-    options
+    { ...options, ...addedOption }
   )
     .then((response) => response.json())
     // .then((response) => console.log(response))
