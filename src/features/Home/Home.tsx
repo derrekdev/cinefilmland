@@ -2,7 +2,7 @@
 
 import MovieCardItem from "@/components/ui/MovieCardItem/MovieCardItem";
 import { useState } from "react";
-import HomeSectionLayout from "../element/HomeSectionLayout";
+import HomeSectionLayout from "../../components/layout/element/HomeSectionLayout";
 
 type movieDataProps<T> = {
   movieDiscover: T;

@@ -1,7 +1,7 @@
 "use client";
 
 import MovieCardItem from "@/components/ui/MovieCardItem/MovieCardItem";
-import HomeSectionLayout from "../../element/HomeSectionLayout";
+import HomeSectionLayout from "../../../components/layout/element/HomeSectionLayout";
 
 export default function HomeTrending({
   data,

@@ -1,7 +1,7 @@
 import { fetchData } from "@/components/hooks/movie";
-import HomeHero from "@/components/layout/Home/HomeHero/HomeHero";
-import HomeSearch from "@/components/layout/Home/HomeSearch/HomeSearch";
 import MovieList from "@/components/ui/MovieList/MovieList";
+import HomeHero from "@/features/Home/HomeHero/HomeHero";
+import HomeSearch from "@/features/Home/HomeSearch/HomeSearch";
 
 export default async function Home() {
   const moviePopular = await fetchData("movie/popular?language=en-US&page=1");
@@ -47,6 +47,11 @@ export default async function Home() {
         title="Trending"
         data={resultLimit(movieTrending.results, 5)}
         btnHref="/"
+      />
+      <MovieList title="Popular" data={resultLimit(moviePopular.results, 5)} />
+      <MovieList
+        title="Upcoming"
+        data={resultLimit(movieUpcoming.results, 5)}
       />
       <MovieList
         title="Discover"
