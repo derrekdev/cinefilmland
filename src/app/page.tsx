@@ -16,8 +16,6 @@ export default async function Home() {
 
   // https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc
 
-  console.log("data test", movieDiscover);
-
   function resultLimit(options: any, limit: number) {
     let results = [];
     let count = 0;
@@ -46,7 +44,7 @@ export default async function Home() {
       <MovieList
         title="Trending"
         data={resultLimit(movieTrending.results, 5)}
-        btnHref="/"
+        btnHref="/trending"
       />
       <MovieList title="Popular" data={resultLimit(moviePopular.results, 5)} />
       <MovieList

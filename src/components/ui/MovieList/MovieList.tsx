@@ -10,7 +10,7 @@ export default function MovieList({
   btnHref = "",
 }: {
   data: movieProps[];
-  title: string;
+  title?: string;
   btnHref?: string;
 }) {
   return (
