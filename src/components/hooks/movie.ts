@@ -1,4 +1,4 @@
-const options = {
+export const fetchOptions = {
   // next: { revalidate: 5 },
   method: "GET",
   headers: {
@@ -11,7 +11,7 @@ export async function fetchData(url: string, addedOption?: any) {
   const res = await fetch(
     `${process.env.API_URL}${url}`,
     // "https://api.themoviedb.org/3/",
-    { ...options, ...addedOption }
+    { ...fetchOptions, ...addedOption }
   )
     .then((response) => response.json())
     // .then((response) => console.log(response))
@@ -19,3 +19,18 @@ export async function fetchData(url: string, addedOption?: any) {
 
   return res;
 }
+
+// export async function fetchData2(url: string, addedOption?: any) {
+//   // const res = await fetch(
+//   //   `${process.env.API_URL}${url}`,
+//   //   // "https://api.themoviedb.org/3/",
+//   //   { ...options, ...addedOption }
+//   // )
+//   //   .then((response) => response.json())
+//   //   // .then((response) => console.log(response))
+//   //   .catch((err) => console.error(err));
+
+//   // return res;
+
+//   return useQuery(`${process.env.API_URL}${url}`);
+// }

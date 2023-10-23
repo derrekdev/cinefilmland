@@ -3,15 +3,19 @@ import Link from "next/link";
 const movieuLinks = [
   {
     name: "Trending",
-    href: "/trending",
+    href: "/movie_trending",
   },
   {
     name: "Popular",
-    href: "/trending",
+    href: "/movie_trending",
+  },
+  {
+    name: "Upcoming",
+    href: "/movie_trending",
   },
   {
     name: "Discover",
-    href: "/trending",
+    href: "/movie_trending",
   },
 ];
 

@@ -1,3 +1,4 @@
+import Initiate from "@/components/layout/Initiate/Initiate";
 import SideMenu from "@/components/layout/SideMenu/SideMenu";
 import TopNavigationBar from "@/components/layout/TopNavigationBar/TopNavigationBar";
 import { Inter } from "next/font/google";
@@ -7,12 +8,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-neutral-900 text-neutral-100`}>
+    // <html lang="en">
+    <main className={` bg-neutral-900 text-neutral-100`}>
+      <Initiate>
         <TopNavigationBar />
         <SideMenu />
         {children}
-      </body>
-    </html>
+      </Initiate>
+    </main>
+    // {/* </html> */}
   );
 }

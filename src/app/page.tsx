@@ -44,7 +44,7 @@ export default async function Home() {
       <MovieList
         title="Trending"
         data={resultLimit(movieTrending.results, 5)}
-        btnHref="/trending"
+        btnHref="/movie_trending"
       />
       <MovieList title="Popular" data={resultLimit(moviePopular.results, 5)} />
       <MovieList
