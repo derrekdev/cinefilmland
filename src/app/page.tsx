@@ -14,8 +14,6 @@ export default async function Home() {
     { next: 3600 }
   );
 
-  // https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc
-
   function resultLimit(options: any, limit: number) {
     let results = [];
     let count = 0;
@@ -25,17 +23,8 @@ export default async function Home() {
       count++;
     }
 
-    console.log("count", count);
     return results;
   }
-
-  const dataList = {
-    moviePopular,
-    movieDiscover: movieDiscover.results,
-    movieUpcoming: movieUpcoming.results,
-    // movieTrending: movieTrending.results,
-    movieTrending: resultLimit(movieTrending.results, 5),
-  };
 
   return (
     <main className="pt-32">
@@ -46,14 +35,20 @@ export default async function Home() {
         data={resultLimit(movieTrending.results, 5)}
         btnHref="/movie_trending"
       />
-      <MovieList title="Popular" data={resultLimit(moviePopular.results, 5)} />
+      <MovieList
+        title="Popular"
+        data={resultLimit(moviePopular.results, 5)}
+        btnHref="/movie_popular"
+      />
       <MovieList
         title="Upcoming"
         data={resultLimit(movieUpcoming.results, 5)}
+        btnHref="/movie_upcoming"
       />
       <MovieList
         title="Discover"
         data={resultLimit(movieDiscover.results, 5)}
+        btnHref="/movie_discover"
       />
     </main>
   );

@@ -50,7 +50,7 @@ export default function TopNavigationBar() {
               className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
               href="/movie_trending"
             >
-              Movie Trends
+              Movie
             </Link>
           </li>
           <li className="mr-3">

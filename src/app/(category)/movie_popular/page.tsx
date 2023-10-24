@@ -8,22 +8,22 @@ export default async function page({
     [key: string]: string;
   };
 }) {
-  const movieTrending = await fetchData(
-    `trending/movie/week?language=en-US&page=${
+  const moviePopular = await fetchData(
+    `movie/popular?language=en-US&page=${
       searchParams.page ? searchParams.page : 1
     }`,
     { next: 60 }
   );
   const page = searchParams.page ? parseInt(searchParams.page) : 1;
 
-  console.log("movieTrending", movieTrending);
+  console.log("movieTrending", moviePopular);
 
   return (
     <section className="pl-80 pt-32">
-      <h1 className="text-yellow-300 text-4xl up pb-6">Trending</h1>
+      <h1 className="text-yellow-300 text-4xl up pb-6">Popular</h1>
       <Videolist
-        data={movieTrending.results}
-        pageTotal={movieTrending.total_pages}
+        data={moviePopular.results}
+        pageTotal={moviePopular.total_pages}
         pageNumber={page}
         pageMax={500}
       />

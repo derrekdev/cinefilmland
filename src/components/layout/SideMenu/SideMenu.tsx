@@ -7,15 +7,15 @@ const movieuLinks = [
   },
   {
     name: "Popular",
-    href: "/movie_trending",
+    href: "/movie_popular",
   },
   {
     name: "Upcoming",
-    href: "/movie_trending",
+    href: "/movie_upcoming",
   },
   {
     name: "Discover",
-    href: "/movie_trending",
+    href: "/movie_discover",
   },
 ];
 
