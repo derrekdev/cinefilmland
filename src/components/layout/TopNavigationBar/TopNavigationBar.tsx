@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 
 export default function TopNavigationBar() {
@@ -58,7 +59,10 @@ export default function TopNavigationBar() {
               className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
               href="#"
             >
-              link
+              TV
+              <Badge variant="destructive" className="mb-[-20px] text-[8px]">
+                On Development
+              </Badge>
             </Link>
           </li>
           <li className="mr-3">

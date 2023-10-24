@@ -38,15 +38,13 @@ export default function SideMenu({ type = "movie" }: { type?: linkTypeProps }) {
       sideMenuMovieuLinks = [];
   }
 
-  console.log("testing", sideMenuMovieuLinks);
-
   return (
-    <div className="w-80 pt-32 fixed">
-      <ul className="p-12 ">
+    <div className="w-2/12 pt-56 pl-10">
+      <ul className=" fixed">
         {sideMenuMovieuLinks.length > 0 &&
           sideMenuMovieuLinks.map((link, index) => (
-            <li key={index}>
-              <Link href={link.href} className="text-yellow-300 ">
+            <li key={index} className="py-4 hover:pl-6 transition-all">
+              <Link href={link.href} className="text-yellow-300 text-xl">
                 {link.name}
               </Link>
             </li>

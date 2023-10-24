@@ -19,14 +19,14 @@ export default async function page({
   console.log("movieTrending", moviePopular);
 
   return (
-    <section className="pl-80 pt-32">
-      <h1 className="text-yellow-300 text-4xl up pb-6">Popular</h1>
+    <div className="w-10/12 pt-32">
+      <h1 className="text-yellow-300 text-4xl px-10  pb-6">Popular</h1>
       <Videolist
         data={moviePopular.results}
         pageTotal={moviePopular.total_pages}
         pageNumber={page}
         pageMax={500}
       />
-    </section>
+    </div>
   );
 }

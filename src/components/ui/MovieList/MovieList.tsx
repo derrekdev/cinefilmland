@@ -27,7 +27,7 @@ export default function MovieList({
         <div className="text-center w-full pt-6 flex justify-center">
           <Link
             href={btnHref}
-            className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semi bold uppercase block rounded-sm hover:bg-yellow-200 transition-all"
+            className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semi bold uppercase block rounded-xl hover:bg-yellow-200 transition-all"
           >
             View More
           </Link>
