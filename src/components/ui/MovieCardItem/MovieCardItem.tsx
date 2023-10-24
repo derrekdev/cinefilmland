@@ -6,7 +6,7 @@ export default function MovieCardItem({ movie }: { movie: movieProps }) {
   return (
     <Link
       href={`/movie/${movie.id}`}
-      className="p-2 bg-neutral-800 hover:bg-neutral-700 hover:scale-110 transition-all rounded-[10px] group overflow-hidden"
+      className="p-2 bg-neutral-800 hover:bg-neutral-700 transition-all rounded-[10px] group overflow-hidden"
     >
       <div className="rounded-[10px] overflow-hidden transition-all">
         <img
@@ -17,7 +17,7 @@ export default function MovieCardItem({ movie }: { movie: movieProps }) {
           className="group-hover:scale-110 transition-all"
         />
       </div>
-      <h3 className="text-center pt-2 text-xl font-extralight text-yellow-300">
+      <h3 className="text-center pt-2 text-xl font-normal text-yellow-300">
         {movie.title}
       </h3>
       {/* <p>{movie.overview}</p> */}

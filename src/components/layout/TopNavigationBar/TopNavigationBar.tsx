@@ -1,12 +1,90 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+type topLinkProps = {
+  name: string;
+  href: string;
+  status?: "dev" | "beta" | "new" | null;
+  compare?: any;
+};
+
+const topLink: topLinkProps[] = [
+  {
+    name: "Home",
+    href: "/",
+    // status: "dev",
+  },
+  {
+    name: "Movie",
+    href: "/movie_trending",
+    // status: "dev",
+    compare: [
+      "/movie_trending",
+      "/movie_popular",
+      "/movie_upcoming",
+      "/movie_discover",
+    ],
+  },
+  {
+    name: "TV",
+    href: "/#",
+    status: "dev",
+  },
+  {
+    name: "Link",
+    href: "/#",
+    // status: "new",
+  },
+];
 
 export default function TopNavigationBar() {
+  const pathname = usePathname();
+
+  const statusComponent = (statusType: string) => {
+    const badgeComponent = (
+      variantType:
+        | "destructive"
+        | "secondary"
+        | "default"
+        | "outline"
+        | null
+        | undefined,
+      description: string,
+      addClass?: string
+    ) => {
+      return (
+        <Badge
+          variant={variantType ? variantType : null}
+          className={`${addClass ? addClass : ""} mb-[-20px] text-[8px]`}
+        >
+          {description}
+        </Badge>
+      );
+    };
+
+    switch (statusType) {
+      case "dev":
+        return badgeComponent("destructive", "In Progress");
+
+      case "new":
+        return badgeComponent("default", "New", "bg-green-500");
+
+      case "beta":
+        return badgeComponent("default", "Beta", "bg-blue-400");
+
+      default:
+        return null;
+    }
+  };
+
   return (
     <nav className="flex items-center justify-between flex-wrap bg-neutral-900 bg-opacity-70 p-6 fixed w-full z-10 top-0">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link
-          className="text-white no-underline hover:text-white hover:no-underline"
+          className="text-white no-underline  hover:text-white hover:no-underline"
           href="/"
         >
           <span className="text-base pl-2 uppercase">
@@ -38,7 +116,24 @@ export default function TopNavigationBar() {
         id="nav-content"
       >
         <ul className="list-reset lg:flex justify-end flex-1 items-center">
-          <li className="mr-3">
+          {topLink &&
+            topLink.map((link, index) => (
+              <li key={index} className="mr-3">
+                <Link
+                  className={`${
+                    pathname === link.href ||
+                    (link.compare && link.compare.includes(pathname))
+                      ? "text-white"
+                      : "text-gray-600"
+                  } inline-block no-underline hover:text-gray-200 hover:text-underline py-2 px-4`}
+                  href={link.href}
+                >
+                  {link.name}
+                  {link.status && statusComponent(link.status)}
+                </Link>
+              </li>
+            ))}
+          {/* <li className="mr-3">
             <Link
               className="inline-block py-2 px-4 text-white no-underline"
               href="/"
@@ -72,7 +167,7 @@ export default function TopNavigationBar() {
             >
               link
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>

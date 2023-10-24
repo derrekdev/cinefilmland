@@ -10,7 +10,7 @@ export default function HomeHero() {
             <br className="hidden lg:inline-block" />
           </h1>
           <p className="mb-8 leading-relaxed">
-            Films that are current on trend right now
+            Video information for movies and series.
           </p>
           <div className="flex justify-center">
             <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
