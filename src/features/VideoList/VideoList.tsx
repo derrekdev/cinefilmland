@@ -47,7 +47,7 @@ export default function Videolist({
       {pageNumber && pageTotal > 1 && (
         <div className="flex flex-row justify-center gap-2 text-center py-20">
           <button
-            className="py-2 px-4 bg-neutral-600 rounded-[10px] mr-8"
+            className="py-2 px-4 bg-neutral-600 rounded-[10px] mr-8 hover:scale-[115%] hover:text-yellow-300 transition-all"
             onClick={() => {
               handlePage(1);
             }}
@@ -58,7 +58,7 @@ export default function Videolist({
             pageList.map((page, index) => (
               <button
                 key={index}
-                className="p-2 w-10 bg-neutral-600 rounded-[10px]"
+                className="p-2 w-10 bg-neutral-600 rounded-[10px] hover:text-yellow-300 hover:scale-[115%] transition-all"
                 onClick={() => {
                   handlePage(page);
                 }}
@@ -67,7 +67,7 @@ export default function Videolist({
               </button>
             ))}
           <button
-            className="py-2 px-4 bg-neutral-600 rounded-[10px] ml-8"
+            className="py-2 px-4 bg-neutral-600 rounded-[10px] ml-8 hover:text-yellow-300 hover:scale-[115%] transition-all"
             onClick={() => {
               handlePage(pageTotal);
             }}
