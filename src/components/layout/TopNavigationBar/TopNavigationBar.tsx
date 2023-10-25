@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
+import BadgeStatus from "@/components/ui/BadgeStatus/BadgeStatus";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -44,36 +44,17 @@ export default function TopNavigationBar() {
   const pathname = usePathname();
 
   const statusComponent = (statusType: string) => {
-    const badgeComponent = (
-      variantType:
-        | "destructive"
-        | "secondary"
-        | "default"
-        | "outline"
-        | null
-        | undefined,
-      description: string,
-      addClass?: string
-    ) => {
-      return (
-        <Badge
-          variant={variantType ? variantType : null}
-          className={`${addClass ? addClass : ""} mb-[-20px] text-[8px]`}
-        >
-          {description}
-        </Badge>
-      );
-    };
-
     switch (statusType) {
       case "dev":
-        return badgeComponent("destructive", "In Progress");
+        return (
+          <BadgeStatus variantType="destructive" description="In Progress" />
+        );
 
       case "new":
-        return badgeComponent("default", "New", "bg-green-500");
+        return <BadgeStatus description="New" addClass="bg-green-500" />;
 
       case "beta":
-        return badgeComponent("default", "Beta", "bg-blue-400");
+        return <BadgeStatus description="Beta" addClass="bg-blue-400" />;
 
       default:
         return null;

@@ -39,7 +39,7 @@ export default function SideMenu({ type = "movie" }: { type?: linkTypeProps }) {
   }
 
   return (
-    <div className="w-2/12 pt-56 pl-10">
+    <aside className="w-2/12 pt-56 pl-10">
       <ul className=" fixed">
         {sideMenuMovieuLinks.length > 0 &&
           sideMenuMovieuLinks.map((link, index) => (
@@ -50,6 +50,6 @@ export default function SideMenu({ type = "movie" }: { type?: linkTypeProps }) {
             </li>
           ))}
       </ul>
-    </div>
+    </aside>
   );
 }
