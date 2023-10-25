@@ -26,21 +26,25 @@ export default async function Home() {
           title="Trending"
           data={resultLimit(movieTrending.results, 5)}
           btnHref="/movie_trending"
+          addClassName="md:grid-cols-5"
         />
         <MovieList
           title="Popular"
           data={resultLimit(moviePopular.results, 5)}
           btnHref="/movie_popular"
+          addClassName="md:grid-cols-5"
         />
         <MovieList
           title="Upcoming"
           data={resultLimit(movieUpcoming.results, 5)}
           btnHref="/movie_upcoming"
+          addClassName="md:grid-cols-5"
         />
         <MovieList
           title="Discover"
           data={resultLimit(movieDiscover.results, 5)}
           btnHref="/movie_discover"
+          addClassName="md:grid-cols-5"
         />
       </Initiate>
     </main>

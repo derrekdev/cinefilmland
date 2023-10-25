@@ -6,6 +6,8 @@ export default function HomeSectionLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="container flex  flex-col p-10 ">{children}</section>
+    <section className="container flex  flex-col py-10 px-5 ">
+      {children}
+    </section>
   );
 }

@@ -42,7 +42,9 @@ export default function Videolist({
 
   return (
     <div>
-      {data && data.length > 0 && <MovieList data={data} />}
+      {data && data.length > 0 && (
+        <MovieList data={data} addClassName="md:grid-cols-4 lg:grid-cols-5" />
+      )}
 
       {pageNumber && pageTotal > 1 && (
         <div className="flex flex-row justify-center gap-2 text-center py-20">

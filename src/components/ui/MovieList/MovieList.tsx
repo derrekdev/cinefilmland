@@ -8,15 +8,23 @@ export default function MovieList({
   data,
   title = "",
   btnHref = "",
+  addClassName = "",
 }: {
   data: movieProps[];
   title?: string;
   btnHref?: string;
+  addClassName?: string;
 }) {
   return (
     <HomeSectionLayout>
-      {title && <h2 className="text-yellow-300 text-2xl up pb-6">{title}</h2>}
-      <div className="grid grid-flow-row grid-cols-3 md:grid-cols-5 gap-4">
+      {title && (
+        <h2 className="text-yellow-300 text-[5vw] md:text-2xl up pb-6">
+          {title}
+        </h2>
+      )}
+      <div
+        className={`grid grid-flow-row grid-cols-2 sm:grid-cols-3 gap-4 overflow-hidden ${addClassName}`}
+      >
         {data &&
           data.length > 0 &&
           data.map((trending, index) => (
@@ -24,7 +32,7 @@ export default function MovieList({
           ))}
       </div>
       {btnHref && (
-        <div className="text-center w-full pt-6 flex justify-center">
+        <div className="text-center  pt-6 flex justify-center">
           <Link
             href={btnHref}
             className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semi bold uppercase block rounded-xl hover:bg-yellow-200 transition-all"

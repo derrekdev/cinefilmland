@@ -33,7 +33,7 @@ export default function HomeSearch() {
       <div className="w-full flex flex-row relative">
         <Input
           type="text"
-          className="10/12 text-yellow-300 py-8 text-lg focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl"
+          className="10/12 text-yellow-300 py-8 text-xs lg:text-lg focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl"
           placeholder="Search your movie here..."
           onChange={(e) => setSearchText(e.target.value)}
         />
@@ -47,16 +47,18 @@ export default function HomeSearch() {
                   key={index}
                   className="flex flex-row py-4 items-center hover:bg-neutral-900 transition-all group"
                 >
-                  <div className="w-[50px] h-[75px] overflow-hidden">
+                  <div className="inline-block xs:max-md:w-14 h-[75px] overflow-hidden pr-2 md:pr-8">
                     <Image
                       src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
                       alt={`${movie.title} thumbnail`}
                       height={75}
                       width={50}
-                      className="group-hover:scale-125 transition-all"
+                      className="w-14 group-hover:scale-125 transition-all"
                     />
                   </div>
-                  <span className="text-yellow-300 pl-8">{movie.title}</span>
+                  <span className="text-yellow-300 xs:max-md:w-4/6 ">
+                    {movie.title}
+                  </span>
                 </Link>
               ))}
             {!isLoading && data.length === 0 && searchText !== "" && (
