@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/Footer/Footer";
 import TopNavigationBar from "@/components/layout/TopNavigationBar/TopNavigationBar";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
@@ -40,6 +41,7 @@ export default function RootLayout({
       >
         <TopNavigationBar />
         {children}
+        <Footer />
       </body>
     </html>
   );

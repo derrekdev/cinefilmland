@@ -16,8 +16,6 @@ export default async function page({
   );
   const page = searchParams.page ? parseInt(searchParams.page) : 1;
 
-  console.log("movieUpcoming", movieDiscover);
-
   return (
     <div className="w-10/12 pt-32">
       <h1 className="text-yellow-300 text-4xl px-10 pb-6">Discover</h1>
