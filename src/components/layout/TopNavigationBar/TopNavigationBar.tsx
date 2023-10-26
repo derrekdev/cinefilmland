@@ -96,7 +96,7 @@ export default function TopNavigationBar() {
         className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0"
         id="nav-content"
       >
-        <ul className="list-reset lg:flex justify-end flex-1 items-center">
+        <ul className="list-reset lg:flex justify-end flex-1 items-center h-10">
           {topLink &&
             topLink.map((link, index) => (
               <li key={index} className="mr-3">
@@ -104,9 +104,9 @@ export default function TopNavigationBar() {
                   className={`${
                     pathname === link.href ||
                     (link.compare && link.compare.includes(pathname))
-                      ? "text-white"
-                      : "text-gray-600"
-                  } inline-block no-underline hover:text-gray-200 hover:text-underline py-2 px-4`}
+                      ? "font-extrabold text-base"
+                      : "font-thin text-xs"
+                  } text-white inline-block no-underline hover:text-gray-200 transition-all hover:text-underline py-2 px-4`}
                   href={link.href}
                 >
                   {link.name}

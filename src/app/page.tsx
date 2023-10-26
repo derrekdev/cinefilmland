@@ -2,7 +2,6 @@ import { fetchData } from "@/components/hooks/movie";
 import Initiate from "@/components/layout/Initiate/Initiate";
 import MovieList from "@/components/ui/MovieList/MovieList";
 import HomeHero from "@/features/Home/HomeHero/HomeHero";
-import HomeSearch from "@/features/Home/HomeSearch/HomeSearch";
 import resultLimit from "@/utils/resultLimit";
 
 export default async function Home() {
@@ -17,11 +16,10 @@ export default async function Home() {
   );
 
   return (
-    <main className="pt-32">
+    <main className="">
       <Initiate>
         <HomeHero />
 
-        <HomeSearch />
         <MovieList
           title="Trending"
           data={resultLimit(movieTrending.results, 5)}
