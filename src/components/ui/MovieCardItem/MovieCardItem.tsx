@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import defaultImage from "@/../public/default_poster.jpg";
 import Link from "next/link";

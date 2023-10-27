@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className}  bg-neutral-900 text-neutral-100 dark`}
+        className={`${inter.className}  bg-neutral-900 text-neutral-100 min-h-screen flex flex-col dark`}
       >
         <TopNavigationBar />
         {children}
