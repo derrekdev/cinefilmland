@@ -41,31 +41,6 @@ export default function HeadlineTitle({
         </div>
       </div>
       {children}
-      {/* <div className="flex flex-row">
-              <div className="min-w-[200px]"></div>
-              <div className="w-fit px-10 flex flex-col gap-6">
-                <div>
-                  <span className="pr-8 text-lg">{movieDetail.status}</span>
-                  {movieDetail.genres.map(
-                    (genre: genreProps, index: number) => (
-                      <span
-                        key={genre.id}
-                        className={
-                          index >= movieDetail.genres.length - 1
-                            ? "pr-8"
-                            : "pr-2"
-                        }
-                      >
-                        {genre.name}
-                        {index < movieDetail.genres.length - 1 ? "," : ""}
-                      </span>
-                    )
-                  )}
-                  <span>{getHoursMins(movieDetail.runtime)}</span>
-                </div>
-                <p className=" ">{movieDetail.overview}</p>
-              </div>
-            </div> */}
     </section>
   );
 }

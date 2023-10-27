@@ -16,7 +16,7 @@ export default async function page({
   const movieCastCredits = await fetchData(
     `movie/${id}/credits?language=en-US`,
     {
-      next: 60,
+      next: 3600,
     }
   );
 
@@ -84,19 +84,22 @@ export default async function page({
                 <div className="grid max-md:grid-cols-2 max-lg:grid-cols-3 grid-cols-6 gap-6">
                   {movieCast &&
                     movieCast.map((cast: castActorProps, index: number) => (
-                      // <div key={index}>{cast.name}</div>
-                      <PeopleCardItem key={index} cast={cast} />
+                      <PeopleCardItem
+                        key={index}
+                        peopleId={cast.id}
+                        peopleProfilePath={cast.profile_path}
+                        peopleName={cast.name}
+                        peopleCharacter={cast.character}
+                      />
                     ))}
                 </div>
                 <div className="flex justify-center pt-10">
-                  {/* <Button className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semibold uppercase block rounded-xl hover:bg-yellow-200 transition-all"> */}
                   <Link
                     href={`/movie_cast/${id}`}
                     className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semibold uppercase block rounded-xl hover:bg-yellow-200 transition-all"
                   >
                     View all Cast
                   </Link>
-                  {/* </Button> */}
                 </div>
               </div>
             </div>

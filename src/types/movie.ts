@@ -27,7 +27,7 @@ type cast = {
   crew: castCrewProps[];
 };
 
-type castActorProps = {
+type castDefaultProps = {
   adult: boolean;
   gender: number;
   id: number;
@@ -35,23 +35,22 @@ type castActorProps = {
   name: string;
   original_name: string;
   popularity: number;
-  profile_path?: string;
-  cast_id: number;
-  character: string;
   credit_id: string;
-  order: number;
+  profile_path?: string;
 };
 
+type castActorProps = {
+  cast_id: number;
+  character: string;
+  order: number;
+} & castDefaultProps;
+
+// profile_path?: string;
+//   cast_id: number;
+//   character: string;
+//   order: number;
+
 type castCrewProps = {
-  adult: boolean;
-  gender: number;
-  id: number;
-  known_for_department: string;
-  name: string;
-  original_name: string;
-  popularity: number;
-  profile_path?: string;
-  credit_id: string;
   department: string;
   job: string;
-};
+} & castDefaultProps;

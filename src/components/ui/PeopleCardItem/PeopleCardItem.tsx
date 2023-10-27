@@ -2,40 +2,57 @@ import defaultImage from "@/../public/default_person.png";
 import Link from "next/link";
 
 export default function PeopleCardItem({
-  cast,
+  peopleId,
+  peopleProfilePath,
+  peopleName,
+  peopleCharacter,
+  peopleJob,
+  imgHeight = 355,
+  imgWidth = 250,
 }: {
-  cast: castActorProps;
-  // | castCrewProps
+  peopleId: number;
+  peopleProfilePath: string | undefined | null;
+  peopleName: string;
+  peopleCharacter?: string;
+  peopleJob?: string;
+  imgHeight?: number;
+  imgWidth?: number;
 }) {
   return (
     <Link
-      href={`/people/${cast.id}`}
-      className=" transition-all rounded-[10px] group overflow-hidden"
+      href={`/people/${peopleId}`}
+      className=" transition-all flex flex-col items-center rounded-[10px] group overflow-hidden"
     >
-      <div className="rounded-[10px] overflow-hidden transition-all">
+      <div
+        className="bg-neutral-800 rounded-[10px] overflow-hidden transition-all flex justify-center align-middle items-end"
+        style={{
+          height: `${imgHeight}px`,
+          width: `${imgWidth}px`,
+        }}
+      >
         <img
           src={`${
-            cast.profile_path
-              ? "https://image.tmdb.org/t/p/w300" + cast.profile_path
+            peopleProfilePath
+              ? "https://image.tmdb.org/t/p/w300" + peopleProfilePath
               : defaultImage.src
           }`}
-          alt={`${cast.name} thumbnail`}
-          height={355}
-          width={250}
-          className="group-hover:scale-110 transition-all"
+          alt={`${peopleName} thumbnail`}
+          height={imgHeight}
+          width={imgWidth}
+          className=" group-hover:scale-110 transition-all"
         />
       </div>
-      <div className="flex flex-col gap-0">
+      <div className="flex flex-col w-full gap-0">
         {/* text-[2.5vw] md:text-[1.8vw] lg:text-xl  */}
         <h3 className=" h-8 font-bold pt-2  text-yellow-300 overflow-hidden  text-ellipsis">
-          {cast.name}
+          {peopleName}
         </h3>
-        {cast.character && (
-          <h4 className="h-8 overflow-hidden font-base text-sm text-ellipsis">
-            {cast.character}
+        {peopleCharacter && (
+          <h4 className="h-12 overflow-hidden font-base text-sm text-ellipsis">
+            {peopleCharacter}
           </h4>
         )}
-        {/* <h4 className="font-base text-sm">{cast.name}</h4> */}
+        {peopleJob && <h4 className="font-base text-sm ">{peopleJob}</h4>}
       </div>
     </Link>
   );
