@@ -1,7 +1,7 @@
 type movieProps = {
   adult: boolean;
   backdrop_path?: string;
-  genre_ids?: number[];
+  genre_ids?: genreProps[];
   id: number;
   original_language: string;
   original_title: string;
@@ -13,4 +13,10 @@ type movieProps = {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  runtime?: number;
+};
+
+type genreProps = {
+  id: number;
+  name: string;
 };

@@ -33,7 +33,7 @@ export default function HomeSearch() {
 
   return (
     <HomeSectionLayout>
-      <div className="w-full flex flex-row relative">
+      <search className="w-full flex flex-row relative">
         <Input
           type="text"
           className="10/12 text-yellow-300 py-2 md:py-8 pl-2 md:pl-8 text-xs lg:text-lg focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl"
@@ -109,7 +109,7 @@ export default function HomeSearch() {
             )}
           </div>
         )}
-      </div>
+      </search>
     </HomeSectionLayout>
   );
 }

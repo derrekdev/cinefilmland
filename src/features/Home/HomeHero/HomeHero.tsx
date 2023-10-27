@@ -30,7 +30,7 @@ export default function HomeHero() {
         fill
         src={"/bg-image-cover.jpeg"}
         alt="CineFilmLand Cover Photo"
-        className="blur-[5px]"
+        className="blur-[5px]  object-cover"
       />
       <HomeSearch />
     </section>
