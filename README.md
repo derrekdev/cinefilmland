@@ -9,14 +9,36 @@ This is only a side project and not for offical use. The data of movies and tv s
 ## Features
 
 **Movies**
-- Trending Movies List
-- Popular Movies List
-- Upcoming Movies List
-- Discover Movies List
+- Trending
+    - Trending List Homepage
+    - Trending List Page
+- Popular
+    - Popular List Homepage
+    - Popular List Page
+- Upcoming
+    - Upcoming List Homepage
+    - Upcoming List Page
+- Discover
+    - Discover List Homepage
+    - Discover List Page
+
+- Movie Information
+    - Movie Detail
+    - Actor and Crew List
+ 
 - Search Specific Movies
+
+<br>
 
 **TV**
 - still in progress
+
+<br>
+
+## Todo list
+- create people detail page
+- add more information on movie detail page
+- about page
 
 <br>
 
