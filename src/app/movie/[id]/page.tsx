@@ -1,17 +1,17 @@
-import coverImage from "@/../public/bg-image-cover.jpeg";
-import defaultImage from "@/../public/default_poster.jpg";
 import { fetchData } from "@/components/hooks/movie";
+import HeadlineImage from "@/components/layout/HeadlineImage/HeadlineImage";
+import HeadlineTitle from "@/components/layout/HeadlineTitle/HeadlineTitle";
 import PeopleCardItem from "@/components/ui/PeopleCardItem/PeopleCardItem";
 import convertTime from "@/utils/convertTime";
-import getDate from "@/utils/getDate";
 import resultLimit from "@/utils/resultLimit";
-import Image from "next/image";
+import Link from "next/link";
 
 export default async function page({
   params: { id },
 }: {
   params: { id: string };
 }) {
+  const { getHoursMins } = convertTime();
   const movieDetail = await fetchData(`movie/${id}`, { next: 60 });
   const movieCastCredits = await fetchData(
     `movie/${id}/credits?language=en-US`,
@@ -20,9 +20,9 @@ export default async function page({
     }
   );
 
-  // https://api.themoviedb.org/3/movie/movie_id/credits?language=en-US
+  const movieCast = resultLimit(movieCastCredits.cast, 6);
 
-  const { getHoursMins } = convertTime();
+  // https://api.themoviedb.org/3/movie/movie_id/credits?language=en-US
 
   // movieDetail.backdrop_path full image
   // https://image.tmdb.org/t/p/original/628Dep6AxEtDxjZoGP78TsOxYbK.jpg
@@ -35,59 +35,21 @@ export default async function page({
   // movieDetail.release_date
   // movieDetail.genres[ id, name ]
 
-  console.log("===========================");
-  console.log("movieDetail", movieDetail);
-  console.log("===========================");
-  console.log("movieCast", movieCastCredits.cast);
-
-  console.log("movieCast", movieCastCredits.cast.length);
-  const movieCast = resultLimit(movieCastCredits.cast, 6);
-
-  console.log("movieCast", movieCast);
-
   return (
     <main className="pt-24">
       {movieDetail && (
         <>
-          <section className="h-[50vh] max-h-[500px] relative flex flex-col justify-end ">
-            <Image
-              src={
-                movieDetail.poster_path
-                  ? "https://image.tmdb.org/t/p/original" +
-                    movieDetail.backdrop_path
-                  : coverImage
-              }
-              fill
-              // height={500}
-              alt={movieDetail.title + " cover"}
-              className="h-[50vh] object-cover z-10"
-              // style={{
-              //   objectFit: "cover",
-              // }}
-            />
-          </section>
-          <section className="container flex flex-col ">
-            <div className=" z-20 relative flex flex-row mt-[-180px] items-end">
-              <div className="min-w-[200px] w-[200px]">
-                <Image
-                  src={
-                    movieDetail.poster_path
-                      ? "https://image.tmdb.org/t/p/w300" +
-                        movieDetail.poster_path
-                      : defaultImage
-                  }
-                  height={200}
-                  width={200}
-                  alt={movieDetail.title + " poster"}
-                />
-              </div>
-              <div className="bg-neutral-900 bg-opacity-70 w-full h-[200px] px-10 py-12 flex flex-col justify-between ">
-                <h1 className="text-[2.5vw] md:text-[2.8vw] lg:text-3xl font-normal text-yellow-300">
-                  {movieDetail.title} ({getDate(movieDetail.release_date).year})
-                </h1>
-                <span>{movieDetail.tagline}</span>
-              </div>
-            </div>
+          <HeadlineImage
+            imageSrc={movieDetail.backdrop_path}
+            imageAlt={movieDetail.title}
+          />
+          <HeadlineTitle
+            title={movieDetail.title}
+            posterSrc={movieDetail.poster_path}
+            posterAlt={movieDetail.title}
+            releaseYear={movieDetail.release_date}
+            tagLine={movieDetail.tagline}
+          >
             <div className="flex flex-row">
               <div className="min-w-[200px]"></div>
               <div className="w-fit px-10 flex flex-col gap-6">
@@ -113,7 +75,7 @@ export default async function page({
                 <p className=" ">{movieDetail.overview}</p>
               </div>
             </div>
-          </section>
+          </HeadlineTitle>
           <section className="container flex flex-col pt-10">
             <div className="flex flex-row">
               <div className="min-w-[200px]"></div>
@@ -125,6 +87,16 @@ export default async function page({
                       // <div key={index}>{cast.name}</div>
                       <PeopleCardItem key={index} cast={cast} />
                     ))}
+                </div>
+                <div className="flex justify-center pt-10">
+                  {/* <Button className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semibold uppercase block rounded-xl hover:bg-yellow-200 transition-all"> */}
+                  <Link
+                    href={`/movie_cast/${id}`}
+                    className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semibold uppercase block rounded-xl hover:bg-yellow-200 transition-all"
+                  >
+                    View all Cast
+                  </Link>
+                  {/* </Button> */}
                 </div>
               </div>
             </div>

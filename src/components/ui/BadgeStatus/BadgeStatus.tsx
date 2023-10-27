@@ -20,7 +20,9 @@ export default function BadgeStatus({
   return (
     <Badge
       variant={variantType ? variantType : null}
-      className={`${addClass ? addClass : ""} mb-[-20px] text-[8px]`}
+      className={`${
+        addClass ? addClass : ""
+      } mt-4 ml-[-5px] absolute px-1 py-0 text-[8px]`}
     >
       {description}
     </Badge>

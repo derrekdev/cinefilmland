@@ -34,9 +34,9 @@ const topLink: topLinkProps[] = [
     status: "dev",
   },
   {
-    name: "Link",
+    name: "About",
     href: "/#",
-    // status: "new",
+    status: "dev",
   },
 ];
 
@@ -106,7 +106,7 @@ export default function TopNavigationBar() {
                     (link.compare && link.compare.includes(pathname))
                       ? "font-extrabold text-base"
                       : "font-thin text-xs"
-                  } text-white inline-block no-underline hover:text-gray-200 transition-all hover:text-underline py-2 px-4`}
+                  } text-white flex flex-col no-underline hover:text-gray-200 transition-all hover:text-underline py-2 px-4`}
                   href={link.href}
                 >
                   {link.name}

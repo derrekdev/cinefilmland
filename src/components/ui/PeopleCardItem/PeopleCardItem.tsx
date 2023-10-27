@@ -27,12 +27,15 @@ export default function PeopleCardItem({
       </div>
       <div className="flex flex-col gap-0">
         {/* text-[2.5vw] md:text-[1.8vw] lg:text-xl  */}
+        <h3 className=" h-8 font-bold pt-2  text-yellow-300 overflow-hidden  text-ellipsis">
+          {cast.name}
+        </h3>
         {cast.character && (
-          <h3 className="h-8 overflow-hidden pt-2 font-base text-yellow-300 text-ellipsis">
+          <h4 className="h-8 overflow-hidden font-base text-sm text-ellipsis">
             {cast.character}
-          </h3>
+          </h4>
         )}
-        <h4 className="font-base text-sm">{cast.name}</h4>
+        {/* <h4 className="font-base text-sm">{cast.name}</h4> */}
       </div>
     </Link>
   );
