@@ -51,8 +51,8 @@ export default async function page({
             tagLine={movieDetail.tagline}
           >
             <div className="flex flex-row">
-              <div className="min-w-[200px]"></div>
-              <div className="w-fit px-10 flex flex-col gap-6">
+              <div className="md:min-w-[200px]"></div>
+              <div className="w-fit max-sm:px-0 px-10 flex flex-col gap-6">
                 <div>
                   <span className="pr-8 text-lg">{movieDetail.status}</span>
                   {movieDetail.genres.map(
@@ -76,12 +76,12 @@ export default async function page({
               </div>
             </div>
           </HeadlineTitle>
-          <section className="container flex flex-col pt-10">
-            <div className="flex flex-row">
-              <div className="min-w-[200px]"></div>
-              <div className=" px-10 ">
+          <section className="container flex flex-col pt-10 max-sm:px-6">
+            <div className="flex flex-row ">
+              <div className="md:min-w-[200px]"></div>
+              <div className="w-full px-10 max-sm:px-0 flex flex-col ">
                 <h2 className="text-2xl text-yellow-300 pb-6">Cast</h2>
-                <div className="grid max-md:grid-cols-2 max-lg:grid-cols-3 grid-cols-6 gap-6">
+                <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-3  grid-cols-6 gap-6">
                   {movieCast &&
                     movieCast.map((cast: castActorProps, index: number) => (
                       <PeopleCardItem
