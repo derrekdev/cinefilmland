@@ -21,12 +21,15 @@ This is only a side project and not for offical use. The data of movies and tv s
 - Discover
     - Discover List Homepage
     - Discover List Page
-
 - Movie Information
     - Movie Detail
-    - Actor and Crew List
+    - Top Cast List
+- People Information
+    - Cast and Crew List
+    - Cast or Crew Detail page
  
-- Search Specific Movies
+- Search
+    - Movie Home Page
 
 <br>
 
@@ -35,10 +38,16 @@ This is only a side project and not for offical use. The data of movies and tv s
 
 <br>
 
+**About**
+- still in progress
+
+<br>
+
 ## Todo list
-- create people detail page
+- add trending actors page
 - add more information on movie detail page
 - about page
+- maybe add charts on rating and popularity
 
 <br>
 
