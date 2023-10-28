@@ -45,7 +45,9 @@ export default async function page({
             imageAlt={movieDetail.title}
           />
           <HeadlineTitle
-            title={movieDetail.title}
+            title={
+              movieDetail.title ? movieDetail.title : `This movie doesn't exist`
+            }
             posterSrc={movieDetail.poster_path}
             posterAlt={movieDetail.title}
             releaseYear={movieDetail.release_date}
@@ -55,51 +57,60 @@ export default async function page({
               <div className="md:min-w-[200px]"></div>
               <div className="w-fit max-sm:px-0 px-10 flex flex-col gap-6">
                 <div>
-                  <span className="pr-8 text-lg">{movieDetail.status}</span>
-                  {movieDetail.genres.map(
-                    (genre: genreProps, index: number) => (
-                      <span
-                        key={genre.id}
-                        className={
-                          index >= movieDetail.genres.length - 1
-                            ? "pr-8"
-                            : "pr-2"
-                        }
-                      >
-                        {genre.name}
-                        {index < movieDetail.genres.length - 1 ? "," : ""}
-                      </span>
-                    )
+                  {movieDetail.status && (
+                    <span className="pr-8 text-lg">{movieDetail.status}</span>
                   )}
-                  <span>{getHoursMins(movieDetail.runtime)}</span>
+                  {movieDetail.genres &&
+                    movieDetail.genres.map(
+                      (genre: genreProps, index: number) => (
+                        <span
+                          key={genre.id}
+                          className={
+                            index >= movieDetail.genres.length - 1
+                              ? "pr-8"
+                              : "pr-2"
+                          }
+                        >
+                          {genre.name}
+                          {index < movieDetail.genres.length - 1 ? "," : ""}
+                        </span>
+                      )
+                    )}
+                  {movieDetail.runtime && (
+                    <span>{getHoursMins(movieDetail.runtime)}</span>
+                  )}
                 </div>
-                <p className=" ">{movieDetail.overview}</p>
+                {movieDetail.overview && (
+                  <p className=" ">{movieDetail.overview}</p>
+                )}
               </div>
             </div>
           </HeadlineTitle>
-          <PageBodyLayout>
-            <h2 className="text-2xl text-yellow-300 pb-6">Cast</h2>
-            <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-3  grid-cols-6 gap-6">
-              {movieCast &&
-                movieCast.map((cast: castActorProps, index: number) => (
-                  <PeopleCardItem
-                    key={index}
-                    peopleId={cast.id}
-                    peopleProfilePath={cast.profile_path}
-                    peopleName={cast.name}
-                    peopleCharacter={cast.character}
-                  />
-                ))}
-            </div>
-            <div className="flex justify-center pt-10">
-              <Link
-                href={`/movie_cast/${id}`}
-                className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semibold uppercase block rounded-xl hover:bg-yellow-200 transition-all"
-              >
-                View all Cast
-              </Link>
-            </div>
-          </PageBodyLayout>
+          {movieCast && movieCast.length > 0 && (
+            <PageBodyLayout>
+              <h2 className="text-2xl text-yellow-300 pb-6">Cast</h2>
+              <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-3 grid-cols-6 gap-6">
+                {movieCast &&
+                  movieCast.map((cast: castActorProps, index: number) => (
+                    <PeopleCardItem
+                      key={index}
+                      peopleId={cast.id}
+                      peopleProfilePath={cast.profile_path}
+                      peopleName={cast.name}
+                      peopleCharacter={cast.character}
+                    />
+                  ))}
+              </div>
+              <div className="flex justify-center pt-10">
+                <Link
+                  href={`/movie_cast/${id}`}
+                  className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semibold uppercase block rounded-xl hover:bg-yellow-200 transition-all"
+                >
+                  View all Cast
+                </Link>
+              </div>
+            </PageBodyLayout>
+          )}
         </>
       )}
     </main>

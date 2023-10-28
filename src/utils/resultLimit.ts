@@ -3,7 +3,7 @@ export default function resultLimit(options: any, limit: number) {
   let count = 0;
 
   while (count < limit) {
-    if (options[count] !== undefined) results.push(options[count]);
+    if (options && options[count] !== undefined) results.push(options[count]);
 
     count++;
   }

@@ -28,7 +28,11 @@ export default async function page({
         <>
           <HeadlineImage showImage={false} />
           <HeadlineTitle
-            title={personDetails.name}
+            title={
+              personDetails.name
+                ? personDetails.name
+                : `The person doesn't exist`
+            }
             posterSrc={personDetails.profile_path}
             posterAlt={personDetails.name}
             releaseYear={personDetails.release_date}
@@ -38,9 +42,11 @@ export default async function page({
               <div className="md:min-w-[200px]"></div>
               <div className="w-fit max-sm:px-0 px-10 flex flex-col gap-2">
                 <div className="pb-4">
-                  <span className="pr-5 text-lg">
-                    {getDate(personDetails.birthday).fullDate}
-                  </span>
+                  {personDetails.birthday && (
+                    <span className="pr-5 text-lg">
+                      {getDate(personDetails.birthday).fullDate}
+                    </span>
+                  )}
                   {personDetails.deathday && (
                     <>
                       <span className="text-2xl">-</span>
@@ -50,17 +56,23 @@ export default async function page({
                     </>
                   )}
                 </div>
-                <h2 className="text-xl text-yellow-300">Birth Place</h2>
-                <p className=" ">{personDetails.place_of_birth}</p>
+                {personDetails.place_of_birth && (
+                  <>
+                    <h2 className="text-xl text-yellow-300">Birth Place</h2>
+                    <p className=" ">{personDetails.place_of_birth}</p>
+                  </>
+                )}
               </div>
             </div>
           </HeadlineTitle>
-          <PageBodyLayout>
-            <h2 className="text-xl text-yellow-300 pb-2">Biography</h2>
-            <div className="flex flex-col">
-              <p>{personDetails.biography}</p>
-            </div>
-          </PageBodyLayout>
+          {personDetails.biography && (
+            <PageBodyLayout>
+              <h2 className="text-xl text-yellow-300 pb-2">Biography</h2>
+              <div className="flex flex-col">
+                <p>{personDetails.biography}</p>
+              </div>
+            </PageBodyLayout>
+          )}
         </>
       )}
     </main>
