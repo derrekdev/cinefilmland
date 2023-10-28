@@ -19,8 +19,8 @@ export default function HeadlineTitle({
   children?: React.ReactNode;
 }) {
   return (
-    <section className="container flex flex-col ">
-      <div className=" z-20 relative flex flex-row mt-[-200px] items-end">
+    <section className="container flex flex-col max-sm:px-6">
+      <div className=" z-20 relative flex flex-row max-sm:flex-col max-sm:items-center mt-[-200px] items-end">
         <div className="min-w-[200px] w-[200px]">
           <Image
             src={
@@ -33,11 +33,12 @@ export default function HeadlineTitle({
             alt={posterAlt + " poster"}
           />
         </div>
-        <div className="bg-neutral-900 bg-opacity-70 w-full h-[200px] px-10 py-12 flex flex-col justify-between ">
-          <h1 className="text-[2.5vw] md:text-[2.8vw] lg:text-3xl font-normal text-yellow-300">
+        <div className="bg-neutral-900 bg-opacity-70 w-full sm:h-[200px] sm:px-10  max-sm:py-6 sm:py-12 flex flex-col justify-between ">
+          {/* text-[2.5vw] */}
+          <h1 className="max-sm:text-2xl max-sm:text-center md:text-[2.8vw] lg:text-3xl font-normal text-yellow-300">
             {title} ({getDate(releaseYear).year})
           </h1>
-          {tagLine && <span>{tagLine}</span>}
+          {tagLine && <span className="max-sm:text-center ">{tagLine}</span>}
         </div>
       </div>
       {children}

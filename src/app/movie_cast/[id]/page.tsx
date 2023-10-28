@@ -17,9 +17,9 @@ const PeopleCrewComponent = ({
   return (
     <>
       {crewList && crewList.length > 0 && (
-        <section className="container flex flex-col pt-10 pb-14">
+        <section className="container flex flex-col pt-10 pb-14 max-sm:px-6">
           <h2 className="text-2xl text-yellow-300 pb-6">{title}</h2>
-          <div className="grid max-md:grid-cols-4 max-lg:grid-cols-6 grid-cols-10 gap-6">
+          <div className="grid max-xs:grid-cols-2  max-sm:grid-cols-3 max-md:grid-cols-4 max-lg:grid-cols-6 lg:grid-cols-10 gap-6">
             {crewList.map(
               (
                 crew: Partial<castCrewProps & castActorProps>,

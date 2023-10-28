@@ -24,7 +24,7 @@ export default function PeopleCardItem({
       className=" transition-all flex flex-col items-center rounded-[10px] group overflow-hidden"
     >
       <div
-        className="bg-neutral-800 rounded-[10px] overflow-hidden transition-all flex justify-center align-middle items-end"
+        className={`bg-neutral-800 rounded-[10px] overflow-hidden transition-all flex justify-center align-middle items-end max-md:h-full max-md:w-full `}
         style={{
           height: `${imgHeight}px`,
           width: `${imgWidth}px`,

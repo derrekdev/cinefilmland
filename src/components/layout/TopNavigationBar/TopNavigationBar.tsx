@@ -62,7 +62,7 @@ export default function TopNavigationBar() {
   };
 
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-neutral-900 bg-opacity-70 p-6 fixed w-full z-10 top-0">
+    <nav className="flex items-center justify-between flex-wrap bg-neutral-900 bg-opacity-70 p-6 fixed w-full z-50 top-0">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link
           className="text-white no-underline  hover:text-white hover:no-underline"
