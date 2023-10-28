@@ -3,6 +3,7 @@
 import BadgeStatus from "@/components/ui/BadgeStatus/BadgeStatus";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 type topLinkProps = {
   name: string;
@@ -47,30 +48,48 @@ export default function TopNavigationBar() {
     switch (statusType) {
       case "dev":
         return (
-          <BadgeStatus variantType="destructive" description="In Progress" />
+          <BadgeStatus
+            variantType="destructive"
+            description="In Progress"
+            addClass="max-lg:ml-0 max-lg:mt-0 max-lg:relative"
+          />
         );
 
       case "new":
-        return <BadgeStatus description="New" addClass="bg-green-500" />;
+        return (
+          <BadgeStatus
+            description="New"
+            addClass="bg-green-500 max-lg:ml-0 max-lg:mt-0 max-lg:relative"
+          />
+        );
 
       case "beta":
-        return <BadgeStatus description="Beta" addClass="bg-blue-400" />;
+        return (
+          <BadgeStatus
+            description="Beta"
+            addClass="bg-blue-400 max-lg:ml-0 max-lg:mt-0 max-lg:relative"
+          />
+        );
 
       default:
         return null;
     }
   };
 
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-neutral-900 bg-opacity-70 p-6 fixed w-full z-50 top-0">
+    <nav className="flex items-center justify-between flex-wrap bg-neutral-900 bg-opacity-70 p-6 fixed w-full z-50 top-0 h-auto">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link
           className="text-white no-underline  hover:text-white hover:no-underline"
           href="/"
         >
-          <span className="text-base pl-2 uppercase">
+          <span className="text-base max-lg:text-[2.5vw] pl-2 uppercase">
             {/* <i className="em em-grinning"></i>  */}
-            <span className="text-2xl  text-yellow-300">cine</span>
+            <span className="text-2xl max-lg:text-[3vw] text-yellow-300">
+              cine
+            </span>
             filmland
           </span>
         </Link>
@@ -80,6 +99,10 @@ export default function TopNavigationBar() {
         <button
           id="nav-toggle"
           className="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white"
+          onClick={() => {
+            setIsNavOpen((nav) => !nav);
+            console.log("trigger");
+          }}
         >
           <svg
             className="fill-current h-3 w-3"
@@ -93,62 +116,38 @@ export default function TopNavigationBar() {
       </div>
 
       <div
-        className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0"
+        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto  lg:block pt-6 max-lg:pt-0 transition-all ${
+          isNavOpen
+            ? "max-lg:h-full max-lg:opacity-100"
+            : "max-lg:h-0 max-lg:opacity-0"
+        } `}
         id="nav-content"
       >
-        <ul className="list-reset lg:flex justify-end flex-1 items-center h-10">
+        <ul
+          className={`list-reset max-lg:flex max-lg:flex-col lg:flex justify-end flex-1 items-center max-lg:items-start h-10 max-lg:h-auto transition-all ${
+            isNavOpen ? "max-lg:max-h-[400px]" : "max-lg:max-h-0"
+          } `}
+        >
           {topLink &&
             topLink.map((link, index) => (
-              <li key={index} className="mr-3">
+              <li key={index} className="mr-3 max-lg:w-3/4">
                 <Link
                   className={`${
                     pathname === link.href ||
                     (link.compare && link.compare.includes(pathname))
                       ? "font-extrabold text-base"
                       : "font-thin text-xs"
-                  } text-white flex flex-col no-underline hover:text-gray-200 transition-all hover:text-underline py-2 px-4`}
+                  }
+                  ${
+                    isNavOpen ? "max-lg:max-h-10" : "max-lg:max-h-0"
+                  } text-white flex flex-col max-lg:flex-row no-underline hover:text-gray-200 transition-all hover:text-underline py-2 px-4 w-full`}
                   href={link.href}
                 >
-                  {link.name}
+                  <span className="max-lg:pr-4 ">{link.name}</span>
                   {link.status && statusComponent(link.status)}
                 </Link>
               </li>
             ))}
-          {/* <li className="mr-3">
-            <Link
-              className="inline-block py-2 px-4 text-white no-underline"
-              href="/"
-            >
-              Home
-            </Link>
-          </li>
-          <li className="mr-3">
-            <Link
-              className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-              href="/movie_trending"
-            >
-              Movie
-            </Link>
-          </li>
-          <li className="mr-3">
-            <Link
-              className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-              href="#"
-            >
-              TV
-              <Badge variant="destructive" className="mb-[-20px] text-[8px]">
-                On Development
-              </Badge>
-            </Link>
-          </li>
-          <li className="mr-3">
-            <Link
-              className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-              href="#"
-            >
-              link
-            </Link>
-          </li> */}
         </ul>
       </div>
     </nav>
