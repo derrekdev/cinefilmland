@@ -22,7 +22,7 @@ export default function MovieCardItem({ movie }: { movie: movieProps }) {
           className="group-hover:scale-110 transition-all"
         />
       </div>
-      <h3 className="text-center pt-2 text-[2.5vw] md:text-[1.8vw] lg:text-xl font-normal text-yellow-300">
+      <h3 className="text-left pt-2 text-[2.5vw] md:text-[1.8vw] lg:text-base font-base text-yellow-300">
         {movie.title}
       </h3>
     </Link>

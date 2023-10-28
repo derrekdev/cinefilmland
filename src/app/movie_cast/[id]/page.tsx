@@ -1,55 +1,13 @@
 import { fetchData, generateCrewDepartement } from "@/components/hooks/movie";
 import HeadlineImage from "@/components/layout/HeadlineImage/HeadlineImage";
 import HeadlineTitle from "@/components/layout/HeadlineTitle/HeadlineTitle";
-import PeopleCardItem from "@/components/ui/PeopleCardItem/PeopleCardItem";
-import convertTime from "@/utils/convertTime";
-
-const imageHeight = 160;
-const imageWidht = 110;
-
-const PeopleCrewComponent = ({
-  crewList,
-  title,
-}: {
-  crewList: castCrewProps[];
-  title: string;
-}) => {
-  return (
-    <>
-      {crewList && crewList.length > 0 && (
-        <section className="container flex flex-col pt-10 pb-14 max-sm:px-6">
-          <h2 className="text-2xl text-yellow-300 pb-6">{title}</h2>
-          <div className="grid max-xs:grid-cols-2  max-sm:grid-cols-3 max-md:grid-cols-4 max-lg:grid-cols-6 lg:grid-cols-10 gap-6">
-            {crewList.map(
-              (
-                crew: Partial<castCrewProps & castActorProps>,
-                index: number
-              ) => (
-                <PeopleCardItem
-                  key={index}
-                  peopleId={crew.id!}
-                  peopleProfilePath={crew.profile_path}
-                  peopleName={crew.name!}
-                  peopleCharacter={crew.character ? crew.character : ""}
-                  peopleJob={crew.job ? crew.job : ""}
-                  imgHeight={imageHeight}
-                  imgWidth={imageWidht}
-                />
-              )
-            )}
-          </div>
-        </section>
-      )}
-    </>
-  );
-};
+import PeopleCrewList from "@/features/PeopleCrewList/PeopleCrewList";
 
 export default async function page({
   params: { id },
 }: {
   params: { id: string };
 }) {
-  const { getHoursMins } = convertTime();
   const movieDetail = await fetchData(`movie/${id}`, { next: 60 });
   const movieCastCredits = await fetchData(
     `movie/${id}/credits?language=en-US`,
@@ -123,26 +81,23 @@ export default async function page({
             posterAlt={movieDetail.title}
             releaseYear={movieDetail.release_date}
           />
-          <PeopleCrewComponent crewList={movieCastCredits.cast} title="Cast" />
-          <PeopleCrewComponent crewList={peopleArts} title="Arts" />
-          <PeopleCrewComponent crewList={peopleCameras} title="Camera" />
-          <PeopleCrewComponent
+          <PeopleCrewList crewList={movieCastCredits.cast} title="Cast" />
+          <PeopleCrewList crewList={peopleArts} title="Arts" />
+          <PeopleCrewList crewList={peopleCameras} title="Camera" />
+          <PeopleCrewList
             crewList={peopleCostumeMakeups}
             title="Costume & Make-Up"
           />
-          <PeopleCrewComponent crewList={peopleCrews} title="Crew" />
-          <PeopleCrewComponent crewList={peopleDirectings} title="Directing" />
-          <PeopleCrewComponent crewList={peopleEditings} title="Editing" />
-          <PeopleCrewComponent
-            crewList={peopleProductions}
-            title="Production"
-          />
-          <PeopleCrewComponent crewList={peopleSounds} title="Sound" />
-          <PeopleCrewComponent
+          <PeopleCrewList crewList={peopleCrews} title="Crew" />
+          <PeopleCrewList crewList={peopleDirectings} title="Directing" />
+          <PeopleCrewList crewList={peopleEditings} title="Editing" />
+          <PeopleCrewList crewList={peopleProductions} title="Production" />
+          <PeopleCrewList crewList={peopleSounds} title="Sound" />
+          <PeopleCrewList
             crewList={peopleVisualEffects}
             title="Visual Effects"
           />
-          <PeopleCrewComponent crewList={peopleWritings} title="Writing" />
+          <PeopleCrewList crewList={peopleWritings} title="Writing" />
         </>
       )}
     </main>

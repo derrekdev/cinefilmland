@@ -7,8 +7,9 @@ export default function PeopleCardItem({
   peopleName,
   peopleCharacter,
   peopleJob,
-  imgHeight = 355,
-  imgWidth = 250,
+  imgHeight = 230,
+  imgWidth = 160,
+  peopleCharacterFull = false,
 }: {
   peopleId: number;
   peopleProfilePath: string | undefined | null;
@@ -17,6 +18,7 @@ export default function PeopleCardItem({
   peopleJob?: string;
   imgHeight?: number;
   imgWidth?: number;
+  peopleCharacterFull?: boolean;
 }) {
   return (
     <Link
@@ -44,11 +46,15 @@ export default function PeopleCardItem({
       </div>
       <div className="flex flex-col w-full gap-0">
         {/* text-[2.5vw] md:text-[1.8vw] lg:text-xl  */}
-        <h3 className=" h-8 font-bold pt-2  text-yellow-300 overflow-hidden  text-ellipsis">
+        <h3 className=" h-8 font-bold pt-2  text-yellow-300 overflow-hidden  text-ellipsis group-hover:text-yellow-100 transition-all">
           {peopleName}
         </h3>
         {peopleCharacter && (
-          <h4 className="h-12 overflow-hidden font-base text-sm text-ellipsis">
+          <h4
+            className={`${
+              peopleCharacterFull ? "" : "h-12"
+            }  overflow-hidden font-base text-sm text-ellipsis group-hover:text-neutral-500 transition-all`}
+          >
             {peopleCharacter}
           </h4>
         )}

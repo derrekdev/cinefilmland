@@ -1,22 +1,16 @@
-"use client";
-
-import MovieList from "@/components/ui/MovieList/MovieList";
-import Pagination from "@/components/ui/Pagination/Pagination";
-import { usePathname, useRouter } from "next/navigation";
-
-export default function Videolist({
-  data,
+export default function Pagination({
   pageTotal,
   pageNumber,
   pageMax = 500,
+  handleClick,
+  addClass,
 }: {
-  data: movieProps[];
   pageTotal: number;
   pageNumber: number;
   pageMax?: number;
+  handleClick: (page: number) => void;
+  addClass?: string;
 }) {
-  const router = useRouter();
-  const pathname = usePathname();
   const pageList = [];
   const maxPageNumberDisplay = 10;
 
@@ -36,40 +30,15 @@ export default function Videolist({
   for (startPage; startPage <= maxPageNumber; startPage++) {
     pageList.push(startPage);
   }
-
-  const handlePage = async (page: number) => {
-    router.push(`${pathname}?page=${page}`);
-  };
-
   return (
-    <div>
-      <Pagination
-        pageTotal={pageTotal}
-        pageNumber={pageNumber}
-        pageMax={pageMax}
-        handleClick={handlePage}
-        addClass="lg:pt-10"
-      />
-
-      {data && data.length > 0 && (
-        <MovieList data={data} addClassName="md:grid-cols-4 lg:grid-cols-5" />
-      )}
-
-      <Pagination
-        pageTotal={pageTotal}
-        pageNumber={pageNumber}
-        pageMax={pageMax}
-        handleClick={handlePage}
-        addClass="lg:pb-10"
-      />
-
-      {/* {pageNumber && pageTotal > 1 && (
-        <div className="flex flex-row justify-center gap-2 text-center lg:py-20">
+    <div className={`${addClass}`}>
+      {pageNumber && pageTotal > 1 && (
+        <div className="flex flex-row justify-center gap-2 text-center ">
           {!pageList.includes(1) && (
             <button
               className="py-2 px-4 bg-neutral-600 rounded-[10px] mr-8 hover:scale-[115%] hover:text-yellow-300 transition-all"
               onClick={() => {
-                handlePage(1);
+                handleClick(1);
               }}
             >
               First
@@ -81,10 +50,12 @@ export default function Videolist({
                 <button
                   key={index}
                   className={`p-2 w-10 bg-neutral-600 rounded-[10px] hover:text-yellow-300 hover:scale-[115%] transition-all ${
-                    page === pageNumber ? "text-yellow-300 scale-[115%]" : ""
+                    page === pageNumber
+                      ? "text-yellow-300 scale-[115%] font-bold"
+                      : ""
                   }`}
                   onClick={() => {
-                    handlePage(page);
+                    handleClick(page);
                   }}
                 >
                   {page}
@@ -95,7 +66,7 @@ export default function Videolist({
             <button
               className="py-2 px-4 bg-neutral-600 rounded-[10px] hover:text-yellow-300 hover:scale-[115%] transition-all"
               onClick={() => {
-                handlePage(pageNumber - 1);
+                handleClick(pageNumber - 1);
               }}
             >
               Prev
@@ -103,7 +74,7 @@ export default function Videolist({
             <button
               className="py-2 px-4 bg-neutral-600 rounded-[10px] hover:text-yellow-300 hover:scale-[115%] transition-all"
               onClick={() => {
-                handlePage(pageNumber + 1);
+                handleClick(pageNumber + 1);
               }}
             >
               Next
@@ -114,14 +85,14 @@ export default function Videolist({
             <button
               className="py-2 px-4 bg-neutral-600 rounded-[10px] ml-8 hover:text-yellow-300 hover:scale-[115%] transition-all"
               onClick={() => {
-                handlePage(pageTotal);
+                handleClick(pageTotal);
               }}
             >
               Last
             </button>
           )}
         </div>
-      )} */}
+      )}
     </div>
   );
 }

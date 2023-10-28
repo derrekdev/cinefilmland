@@ -116,7 +116,7 @@ export default function TopNavigationBar() {
       </div>
 
       <div
-        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto  lg:block pt-6 max-lg:pt-0 transition-all ${
+        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto  lg:block  max-lg:pt-0 transition-all ${
           isNavOpen
             ? "max-lg:h-full max-lg:opacity-100"
             : "max-lg:h-0 max-lg:opacity-0"
