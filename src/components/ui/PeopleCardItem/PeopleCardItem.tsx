@@ -9,7 +9,7 @@ export default function PeopleCardItem({
   peopleJob,
   imgHeight = 230,
   imgWidth = 160,
-  peopleCharacterFull = false,
+  peopleCharacterFullText = false,
 }: {
   peopleId: number;
   peopleProfilePath: string | undefined | null;
@@ -18,7 +18,7 @@ export default function PeopleCardItem({
   peopleJob?: string;
   imgHeight?: number;
   imgWidth?: number;
-  peopleCharacterFull?: boolean;
+  peopleCharacterFullText?: boolean;
 }) {
   return (
     <Link
@@ -52,7 +52,7 @@ export default function PeopleCardItem({
         {peopleCharacter && (
           <h4
             className={`${
-              peopleCharacterFull ? "" : "h-12"
+              peopleCharacterFullText ? "" : "h-12"
             }  overflow-hidden font-base text-sm text-ellipsis group-hover:text-neutral-500 transition-all`}
           >
             {peopleCharacter}

@@ -30,7 +30,7 @@ export default function PeopleCrewList({
                   peopleJob={crew.job ? crew.job : ""}
                   imgHeight={imageHeight}
                   imgWidth={imageWidht}
-                  peopleCharacterFull={true}
+                  peopleCharacterFullText={true}
                 />
               )
             )}

@@ -1,0 +1,15 @@
+.buttonActive {
+  @apply max-lg:w-[250px] max-lg:ml-5;
+}
+
+.buttonInActive {
+  @apply max-lg:w-0 max-lg:ml-[-15px];
+}
+
+.sideMenuActive {
+  @apply max-lg:w-[300px] max-lg:pl-14 max-lg:pr-16 max-lg:opacity-100;
+}
+
+.sideMenuInActive {
+  @apply max-lg:w-0 max-lg:pl-0 max-lg:pr-0 max-lg:opacity-0;
+}

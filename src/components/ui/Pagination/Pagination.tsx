@@ -63,24 +63,27 @@ export default function Pagination({
               ))}
           </div>
           <div className="grid grid-flow-col gap-2 lg:hidden">
-            <button
-              className="py-2 px-4 bg-neutral-600 rounded-[10px] hover:text-yellow-300 hover:scale-[115%] transition-all"
-              onClick={() => {
-                handleClick(pageNumber - 1);
-              }}
-            >
-              Prev
-            </button>
-            <button
-              className="py-2 px-4 bg-neutral-600 rounded-[10px] hover:text-yellow-300 hover:scale-[115%] transition-all"
-              onClick={() => {
-                handleClick(pageNumber + 1);
-              }}
-            >
-              Next
-            </button>
+            {pageNumber > 1 && (
+              <button
+                className="py-2 px-4 bg-neutral-600 rounded-[10px] hover:text-yellow-300 hover:scale-[115%] transition-all"
+                onClick={() => {
+                  handleClick(pageNumber - 1);
+                }}
+              >
+                Prev
+              </button>
+            )}
+            {pageNumber < pageMax && (
+              <button
+                className="py-2 px-4 bg-neutral-600 rounded-[10px] hover:text-yellow-300 hover:scale-[115%] transition-all"
+                onClick={() => {
+                  handleClick(pageNumber + 1);
+                }}
+              >
+                Next
+              </button>
+            )}
           </div>
-
           {!pageList.includes(pageMax) && (
             <button
               className="py-2 px-4 bg-neutral-600 rounded-[10px] ml-8 hover:text-yellow-300 hover:scale-[115%] transition-all"

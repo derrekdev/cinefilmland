@@ -23,7 +23,7 @@ export default function MovieList({
         </h2>
       )}
       <div
-        className={`grid grid-flow-row grid-cols-2 sm:grid-cols-3 gap-4 overflow-hidden ${addClassName}`}
+        className={`grid grid-flow-row grid-cols-2 xs:grid-cols-3 gap-4 overflow-hidden ${addClassName}`}
       >
         {data &&
           data.length > 0 &&
