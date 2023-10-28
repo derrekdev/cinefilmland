@@ -1,6 +1,7 @@
 import { fetchData } from "@/components/hooks/movie";
 import HeadlineImage from "@/components/layout/HeadlineImage/HeadlineImage";
 import HeadlineTitle from "@/components/layout/HeadlineTitle/HeadlineTitle";
+import PageBodyLayout from "@/components/layout/element/PageBodyLayout";
 import PeopleCardItem from "@/components/ui/PeopleCardItem/PeopleCardItem";
 import convertTime from "@/utils/convertTime";
 import resultLimit from "@/utils/resultLimit";
@@ -76,34 +77,29 @@ export default async function page({
               </div>
             </div>
           </HeadlineTitle>
-          <section className="container flex flex-col pt-10 max-sm:px-6">
-            <div className="flex flex-row ">
-              <div className="md:min-w-[200px]"></div>
-              <div className="w-full px-10 max-sm:px-0 flex flex-col ">
-                <h2 className="text-2xl text-yellow-300 pb-6">Cast</h2>
-                <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-3  grid-cols-6 gap-6">
-                  {movieCast &&
-                    movieCast.map((cast: castActorProps, index: number) => (
-                      <PeopleCardItem
-                        key={index}
-                        peopleId={cast.id}
-                        peopleProfilePath={cast.profile_path}
-                        peopleName={cast.name}
-                        peopleCharacter={cast.character}
-                      />
-                    ))}
-                </div>
-                <div className="flex justify-center pt-10">
-                  <Link
-                    href={`/movie_cast/${id}`}
-                    className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semibold uppercase block rounded-xl hover:bg-yellow-200 transition-all"
-                  >
-                    View all Cast
-                  </Link>
-                </div>
-              </div>
+          <PageBodyLayout>
+            <h2 className="text-2xl text-yellow-300 pb-6">Cast</h2>
+            <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-3  grid-cols-6 gap-6">
+              {movieCast &&
+                movieCast.map((cast: castActorProps, index: number) => (
+                  <PeopleCardItem
+                    key={index}
+                    peopleId={cast.id}
+                    peopleProfilePath={cast.profile_path}
+                    peopleName={cast.name}
+                    peopleCharacter={cast.character}
+                  />
+                ))}
             </div>
-          </section>
+            <div className="flex justify-center pt-10">
+              <Link
+                href={`/movie_cast/${id}`}
+                className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semibold uppercase block rounded-xl hover:bg-yellow-200 transition-all"
+              >
+                View all Cast
+              </Link>
+            </div>
+          </PageBodyLayout>
         </>
       )}
     </main>

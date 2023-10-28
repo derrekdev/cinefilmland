@@ -36,7 +36,8 @@ export default function HeadlineTitle({
         <div className="bg-neutral-900 bg-opacity-70 w-full sm:h-[200px] sm:px-10  max-sm:py-6 sm:py-12 flex flex-col justify-between ">
           {/* text-[2.5vw] */}
           <h1 className="max-sm:text-2xl max-sm:text-center md:text-[2.8vw] lg:text-3xl font-normal text-yellow-300">
-            {title} ({getDate(releaseYear).year})
+            {title}
+            {releaseYear ? "(" + getDate(releaseYear).year + ")" : ""}
           </h1>
           {tagLine && <span className="max-sm:text-center ">{tagLine}</span>}
         </div>
