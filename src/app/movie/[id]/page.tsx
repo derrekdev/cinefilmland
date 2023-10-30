@@ -1,8 +1,10 @@
 import { fetchData } from "@/components/hooks/movie";
 import HeadlineImage from "@/components/layout/HeadlineImage/HeadlineImage";
 import HeadlineTitle from "@/components/layout/HeadlineTitle/HeadlineTitle";
+import FullPageBodyLayout from "@/components/layout/element/FullPageBodyLayout";
 import PageBodyLayout from "@/components/layout/element/PageBodyLayout";
 import PeopleCardItem from "@/components/ui/PeopleCardItem/PeopleCardItem";
+import YoutubePlayer from "@/components/ui/YoutubePlayer/YoutubePlayer";
 import convertTime from "@/utils/convertTime";
 import resultLimit from "@/utils/resultLimit";
 import Link from "next/link";
@@ -20,8 +22,15 @@ export default async function page({
       next: 3600,
     }
   );
+  const movieVideosData = await fetchData(
+    `movie/${id}/videos?language=en-US'/`,
+    {
+      next: 3600,
+    }
+  );
 
   const movieCast = resultLimit(movieCastCredits.cast, 6);
+  const movieVideos = resultLimit(movieVideosData.results, 6);
 
   // https://api.themoviedb.org/3/movie/movie_id/credits?language=en-US
 
@@ -111,6 +120,30 @@ export default async function page({
               </div>
             </PageBodyLayout>
           )}
+          <FullPageBodyLayout>
+            <h2 className="text-2xl text-yellow-300 pb-6">Videos</h2>
+            <div className="grid max-md:grid-cols-2 grid-cols-3 gap-4">
+              {movieVideos &&
+                movieVideos.length > 0 &&
+                movieVideos.map((video, index) => (
+                  <YoutubePlayer
+                    key={video.key}
+                    embedId={video.key}
+                    title={video.name}
+                    width="400"
+                    height="220"
+                  />
+                ))}
+            </div>
+            <div className="flex justify-center pt-10">
+              <Link
+                href={`/movie_video/${id}`}
+                className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semibold uppercase block rounded-xl hover:bg-yellow-200 transition-all"
+              >
+                View all Videos
+              </Link>
+            </div>
+          </FullPageBodyLayout>
         </>
       )}
     </main>
