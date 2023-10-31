@@ -36,7 +36,7 @@ const topLink: topLinkProps[] = [
   },
   {
     name: "About",
-    href: "/#",
+    href: "/about",
     status: "dev",
   },
 ];

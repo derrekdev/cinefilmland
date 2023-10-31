@@ -74,9 +74,9 @@ export default function SideMenu({ type = "movie" }: { type?: linkTypeProps }) {
   //     sideMenuElement.add(styles.sideMenuInActive);
   //   }
   // };
-
+  // bg-neutral-900
   return (
-    <aside className="lg:w-2/12 lg:pt-56 max-lg:relative lg:pl-10 bg-neutral-900 bg-opacity-70 max-lg:w-auto ">
+    <aside className="lg:w-2/12 lg:pt-72 max-lg:relative lg:pl-10 bg-neutral-900 bg-opacity-70 max-lg:w-auto transition-all">
       <div
         id="button-block"
         // ${styles.buttonInActive}
@@ -109,7 +109,7 @@ export default function SideMenu({ type = "movie" }: { type?: linkTypeProps }) {
       >
         {sideMenuMovieuLinks.length > 0 &&
           sideMenuMovieuLinks.map((link, index) => (
-            <li key={index} className="py-4 hover:pl-6 transition-all">
+            <li key={index} className="py-4 hover:pl-2 transition-all">
               <Link href={link.href} className="text-yellow-300 text-xl">
                 {link.name}
               </Link>
