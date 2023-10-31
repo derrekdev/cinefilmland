@@ -41,7 +41,6 @@ export default async function page({
     true,
     true
   );
-
   const movieWriter = generateCrewDepartement(
     movieCastCredits.crew,
     "Writer",
@@ -53,16 +52,6 @@ export default async function page({
 
   // movieDetail.backdrop_path full image
   // https://image.tmdb.org/t/p/original/628Dep6AxEtDxjZoGP78TsOxYbK.jpg
-
-  // movieDetail.title name
-  // movieDetail.overview
-  // movieDetail.poster_path
-  // movieDetail.tagline
-  // movieDetail.status
-  // movieDetail.release_date
-  // movieDetail.genres[ id, name ]
-
-  console.log("movieDetail", movieDetail);
 
   return (
     <main className="pt-24">
@@ -102,7 +91,7 @@ export default async function page({
                   </a>
                 </div>
               </div>
-              <div className="w-fit max-sm:px-0 max-md:pt-8 md:px-10 flex flex-col gap-6">
+              <div className="w-fit max-sm:px-0 max-md:pt-8 md:pl-10 flex flex-col gap-6">
                 <div>
                   {movieDetail.status && (
                     <span className="pr-8 text-lg">{movieDetail.status}</span>
@@ -144,16 +133,16 @@ export default async function page({
                   {!!movieDirect && movieDirect.length > 0 && (
                     <div className="flex flex-col">
                       <h2 className="text-yellow-300 pr-5">Directed by:</h2>
-                      {movieDirect.map((direct) => (
-                        <span>{direct.name}</span>
+                      {movieDirect.map((direct, index) => (
+                        <span key={index}>{direct.name}</span>
                       ))}
                     </div>
                   )}
                   {!!movieWriter && movieWriter.length > 0 && (
                     <div className="flex flex-col">
                       <h2 className="text-yellow-300 pr-5">Written by:</h2>
-                      {movieWriter.map((writer) => (
-                        <span>{writer.name}</span>
+                      {movieWriter.map((writer, index) => (
+                        <span key={index}>{writer.name}</span>
                       ))}
                     </div>
                   )}
@@ -198,7 +187,7 @@ export default async function page({
                     />
                   ))}
               </div>
-              {movieVideos.length > 6 && (
+              {movieVideosData.results.length > 6 && (
                 <div className="flex justify-center pt-10">
                   <Link
                     href={`/movie_video/${id}`}
