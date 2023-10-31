@@ -51,6 +51,7 @@ This is only a side project and not for offical use. The data of movies and tv s
 ## Todo list
 - add trending actors page(not priority)
 - about page(still ongoing, need to add correct information)
+- add loading page(trending, popular, discover and upcoming on development, other pages have not yet started)
 
 <br>
 
