@@ -1,17 +1,6 @@
 "use client";
 
-// export default function YoutubeLite() {
-//   return (
-//     <div>
-//       <LiteYouTubeEmbed
-//         id="L2vS_050c-M"
-//         title="What’s new in Material Design for the web (Chrome Dev Summit 2019)"
-//         iframeClass=""
-//         poster="sddefault"
-//       />
-//     </div>
-//   );
-// }
+import PropTypes from "prop-types";
 
 export default function YoutubePlayer({
   embedId,
@@ -26,19 +15,21 @@ export default function YoutubePlayer({
 }) {
   return (
     <div className="overflow-hidden pb-[56.25%] relative h-0">
-      <iframe
-        className="left-0 top-0 h-full w-full absolute"
-        width={width}
-        height={height}
-        src={`https://www.youtube.com/embed/${embedId}`}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title={title}
-      />
+      {embedId && (
+        <iframe
+          className="left-0 top-0 h-full w-full absolute"
+          width={width}
+          height={height}
+          src={`https://www.youtube.com/embed/${embedId}`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title={title}
+        />
+      )}
     </div>
   );
 }
 
-// YoutubeEmbed.propTypes = {
-//   embedId: PropTypes.string.isRequired,
-// };
+YoutubePlayer.propTypes = {
+  embedId: PropTypes.string.isRequired,
+};

@@ -30,18 +30,23 @@ interface crewDepartmentProps {
   (
     crew: castCrewProps[],
     department: string,
-    combineDuplicate?: boolean
+    combineDuplicate?: boolean,
+    isJob?: Boolean
   ): castCrewProps[];
 }
 
 export const generateCrewDepartement: crewDepartmentProps = function (
   crew,
   department,
-  combineDuplicate = false
+  combineDuplicate = false,
+  isCompareJob = false
 ) {
   const filteredCrew = crew
-    ? crew.filter(
-        (crew: castCrewProps) => crew.known_for_department === department
+    ? crew.filter((crew: castCrewProps) =>
+        isCompareJob
+          ? crew.job.toLowerCase() === department.toLowerCase()
+          : crew.known_for_department?.toLowerCase() ===
+            department.toLowerCase()
       )
     : [];
 
@@ -50,7 +55,7 @@ export const generateCrewDepartement: crewDepartmentProps = function (
       (crew: castCrewProps) => crew.id === currentCrew.id
     );
 
-    if (oldCrew) {
+    if (oldCrew && !isCompareJob) {
       oldCrew.job = oldCrew.job + ", " + currentCrew.job;
 
       const newPreviewCrew = previewCrew.filter(
