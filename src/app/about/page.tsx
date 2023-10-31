@@ -12,7 +12,7 @@ export default function page() {
         showPoster={false}
       />
       <FullPageBodyLayout addClass="md:px-10">
-        <h2 className="text-2xl text-yellow-300 pb-6">About Us</h2>
+        <h2 className="text-2xl text-yellow-300 pb-6">About the Site</h2>
         <div className="flex flex-col gap-8">
           {" "}
           <p className=" ">

@@ -32,7 +32,7 @@ export default function HomeSearch() {
   );
 
   return (
-    <HomeSectionLayout>
+    <HomeSectionLayout withContainerPadding={true}>
       <search className="w-full flex flex-row relative">
         <Input
           type="text"

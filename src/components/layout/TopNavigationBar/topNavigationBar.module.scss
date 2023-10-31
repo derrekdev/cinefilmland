@@ -1,0 +1,23 @@
+.navContent:not(.active) {
+  @apply max-lg:h-0 max-lg:opacity-0;
+
+  ul {
+    @apply max-lg:max-h-0;
+
+    a {
+      @apply max-lg:max-h-0;
+    }
+  }
+}
+
+.navContent.active {
+  @apply max-lg:h-full max-lg:opacity-100;
+
+  ul {
+    @apply max-lg:max-h-[400px];
+
+    a {
+      @apply max-lg:max-h-10;
+    }
+  }
+}

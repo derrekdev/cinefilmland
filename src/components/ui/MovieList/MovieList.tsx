@@ -16,7 +16,7 @@ export default function MovieList({
   addClassName?: string;
 }) {
   return (
-    <HomeSectionLayout>
+    <HomeSectionLayout withContainerPadding={true}>
       {title && (
         <h2 className="text-yellow-300 text-[5vw] md:text-2xl up pb-6">
           {title}
