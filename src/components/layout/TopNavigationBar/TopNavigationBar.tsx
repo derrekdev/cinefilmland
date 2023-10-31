@@ -38,7 +38,7 @@ const topLink: topLinkProps[] = [
   {
     name: "About",
     href: "/about",
-    status: "dev",
+    status: "beta",
   },
 ];
 
@@ -97,7 +97,6 @@ export default function TopNavigationBar() {
           href="/"
         >
           <span className="text-base max-lg:text-[2.5vw] uppercase">
-            {/* <i className="em em-grinning"></i>  */}
             <span className="text-2xl max-lg:text-[3vw] text-yellow-300">
               cine
             </span>

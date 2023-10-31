@@ -14,17 +14,7 @@ export default function HomeHero() {
             Website that provides information about millions of films and
             television programs
           </p>
-          {/* <div className="flex justify-center">
-            <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-              View
-            </button>
-          </div> */}
         </div>
-
-        {/* <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6"> */}
-        {/* <img className="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600"> */}
-        {/* <Image height={400} width={400} src={"/next.svg"} alt="alt image" /> */}
-        {/* </div> */}
       </div>
       <Image
         fill

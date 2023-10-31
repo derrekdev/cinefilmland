@@ -9,15 +9,6 @@ export default async function page({
 }: {
   params: { id: string };
 }) {
-  // const movieDetail = await fetchData(`movie/${id}`, { next: 60 });
-  // const movieCastCredits = await fetchData(
-  //   `movie/${id}/credits?language=en-US`,
-  //   {
-  //     next: 3600,
-  //   }
-  // );
-
-  // 'https://api.themoviedb.org/3/trending/person/week?language=en-US'
   const personDetails = await fetchData(`person/${id}?language=en-US`, {
     next: 3600,
   });

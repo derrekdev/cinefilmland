@@ -45,7 +45,6 @@ export default function PeopleCardItem({
         />
       </div>
       <div className="flex flex-col w-full gap-0">
-        {/* text-[2.5vw] md:text-[1.8vw] lg:text-xl  */}
         <h3 className=" h-8 font-bold pt-2  text-yellow-300 overflow-hidden  text-ellipsis group-hover:text-yellow-100 transition-all">
           {peopleName}
         </h3>

@@ -1,8 +1,9 @@
 "use client";
 
-import MovieCardItem from "@/components/ui/MovieCardItem/MovieCardItem";
 import Link from "next/link";
 import HomeSectionLayout from "../../layout/element/HomeSectionLayout";
+import MovieCardItem from "../MovieCardItem/MovieCardItem";
+import MovieItemLoading from "../MovieItemLoading/MovieItemLoading";
 
 export default function MovieList({
   data,
@@ -30,6 +31,7 @@ export default function MovieList({
           data.map((trending, index) => (
             <MovieCardItem key={index} movie={trending} />
           ))}
+        {!data && [...Array(6)].map((x, i) => <MovieItemLoading key={i} />)}
       </div>
       {btnHref && (
         <div className="text-center  pt-6 flex justify-center">

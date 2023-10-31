@@ -45,11 +45,6 @@ type castActorProps = {
   order: number;
 } & castDefaultProps;
 
-// profile_path?: string;
-//   cast_id: number;
-//   character: string;
-//   order: number;
-
 type castCrewProps = {
   department: string;
   job: string;

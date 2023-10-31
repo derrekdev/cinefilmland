@@ -3,26 +3,26 @@ import getDate from "@/utils/getDate";
 import Image from "next/image";
 import React from "react";
 
-interface defaultHeadlineTitleProps {
-  title: string;
-  // showPoster: boolean;
-  children?: React.ReactNode;
-}
+// interface defaultHeadlineTitleProps {
+//   title: string;
+//   // showPoster: boolean;
+//   children?: React.ReactNode;
+// }
 
-type conditionalHeadlineTitleProps =
-  | {
-      showPoster?: false;
-    }
-  | {
-      showPoster?: true;
-      posterSrc?: string | null;
-      posterAlt?: string;
-      releaseYear?: string;
-      tagLine?: string;
-    };
+// type conditionalHeadlineTitleProps =
+//   | {
+//       showPoster?: false;
+//     }
+//   | {
+//       showPoster?: true;
+//       posterSrc?: string | null;
+//       posterAlt?: string;
+//       releaseYear?: string;
+//       tagLine?: string;
+//     };
 
-type headlineTitleProps = defaultHeadlineTitleProps &
-  conditionalHeadlineTitleProps;
+// type headlineTitleProps = defaultHeadlineTitleProps &
+//   conditionalHeadlineTitleProps;
 
 export default function HeadlineTitle({
   title,

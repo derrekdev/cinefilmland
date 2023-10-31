@@ -71,10 +71,6 @@ export default function HomeSearch() {
                       width={50}
                       className="w-14 group-hover:scale-125 transition-all"
                       loading="lazy"
-                      // onError={(e) => {
-                      //   e.currentTarget.onerror = null;
-                      //   e.currentTarget.src = String(defaultImage);
-                      // }}
                     />
                   </div>
                   <span className="text-yellow-300 xs:max-md:w-4/6 group-hover:text-xl transition-all">

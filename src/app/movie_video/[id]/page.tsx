@@ -10,18 +10,9 @@ export default async function page({
   params: { id: string };
 }) {
   const movieDetail = await fetchData(`movie/${id}`, { next: 3600 });
-  // const movieCastCredits = await fetchData(
-  //   `movie/${id}/credits?language=en-US`,
-  //   {
-  //     next: 3600,
-  //   }
-  // );
-
   const movieVideos = await fetchData(`movie/${id}/videos?language=en-US'/`, {
     next: 3600,
   });
-
-  console.log("movieVideos", movieVideos);
 
   return (
     <main className="pt-24">

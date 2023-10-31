@@ -48,11 +48,6 @@ export default async function page({
     true
   );
 
-  // https://api.themoviedb.org/3/movie/movie_id/credits?language=en-US
-
-  // movieDetail.backdrop_path full image
-  // https://image.tmdb.org/t/p/original/628Dep6AxEtDxjZoGP78TsOxYbK.jpg
-
   return (
     <main className="pt-24">
       {!!movieDetail && (

@@ -1,8 +1,9 @@
 import { fetchData } from "@/components/hooks/movie";
-import Initiate from "@/components/layout/Initiate/Initiate";
+import Initiate from "@/components/layout/Provider/Provider";
 import MovieList from "@/components/ui/MovieList/MovieList";
 import HomeHero from "@/features/Home/HomeHero/HomeHero";
 import resultLimit from "@/utils/resultLimit";
+import { Suspense } from "react";
 
 export default async function Home() {
   const moviePopular = await fetchData("movie/popular?language=en-US&page=1");
@@ -20,12 +21,14 @@ export default async function Home() {
       <Initiate>
         <HomeHero />
 
-        <MovieList
-          title="Trending"
-          data={resultLimit(movieTrending.results, 5)}
-          btnHref="/movie_trending"
-          addClassName="md:grid-cols-5"
-        />
+        <Suspense fallback={<p>Loading.......</p>}>
+          <MovieList
+            title="Trending"
+            data={resultLimit(movieTrending.results, 5)}
+            btnHref="/movie_trending"
+            addClassName="md:grid-cols-5"
+          />
+        </Suspense>
         <MovieList
           title="Popular"
           data={resultLimit(moviePopular.results, 5)}
