@@ -55,6 +55,7 @@ Check the website: <br>
 - add trending actors page(not priority)
 - about page(still ongoing, need to add correct information)
 - add loading page(trending, popular, discover and upcoming on development, other pages have not yet started)
+- add search with filter page for movies
 
 <br>
 
