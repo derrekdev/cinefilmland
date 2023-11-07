@@ -11,6 +11,10 @@ import styles from "./sideMenu.module.scss";
 
 const movieuLinks = [
   {
+    name: "Search Movie",
+    href: "/movie_search",
+  },
+  {
     name: "Trending",
     href: "/movie_trending",
   },
