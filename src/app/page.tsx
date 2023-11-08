@@ -2,7 +2,7 @@ import { fetchData } from "@/components/hooks/movie";
 import Initiate from "@/components/layout/Provider/Provider";
 import MovieList from "@/components/ui/MovieList/MovieList";
 import HomeHero from "@/features/Home/HomeHero/HomeHero";
-import resultLimit from "@/utils/resultLimit";
+import { resultLimit } from "@/utils/dataLimit";
 import { Suspense } from "react";
 
 export default async function Home() {

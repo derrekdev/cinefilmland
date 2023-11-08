@@ -14,6 +14,14 @@ type movieProps = {
   vote_average: number;
   vote_count: number;
   runtime?: number;
+  belongs_to_collection?: collectionProps;
+};
+
+type collectionProps = {
+  id: number;
+  name: string;
+  poster_path: string;
+  backdrop_path: string;
 };
 
 type genreProps = {

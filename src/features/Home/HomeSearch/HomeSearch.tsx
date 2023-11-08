@@ -5,7 +5,7 @@ import { fetchOptions } from "@/components/hooks/movie";
 import HomeSectionLayout from "@/components/layout/element/HomeSectionLayout";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
-import resultLimit from "@/utils/resultLimit";
+import { resultLimit } from "@/utils/dataLimit";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";

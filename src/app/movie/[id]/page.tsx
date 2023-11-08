@@ -3,11 +3,12 @@ import HeadlineImage from "@/components/layout/HeadlineImage/HeadlineImage";
 import HeadlineTitle from "@/components/layout/HeadlineTitle/HeadlineTitle";
 import FullPageBodyLayout from "@/components/layout/element/FullPageBodyLayout";
 import PageBodyLayout from "@/components/layout/element/PageBodyLayout";
+import MovieCardItem from "@/components/ui/MovieCardItem/MovieCardItem";
 import PeopleCardItem from "@/components/ui/PeopleCardItem/PeopleCardItem";
 import YoutubePlayer from "@/components/ui/YoutubePlayer/YoutubePlayer";
 import { generateMoney } from "@/utils/convertNumber";
 import convertTime from "@/utils/convertTime";
-import resultLimit from "@/utils/resultLimit";
+import { resultLimit } from "@/utils/dataLimit";
 import Link from "next/link";
 import { LiaImdb } from "react-icons/lia";
 import { PiLinkSimpleBold } from "react-icons/pi";
@@ -18,7 +19,7 @@ export default async function page({
   params: { id: string };
 }) {
   const { getHoursMins } = convertTime();
-  const movieDetail = await fetchData(`movie/${id}`, { next: 60 });
+  const movieDetail = await fetchData(`movie/${id}`, { next: 3600 });
   const movieCastCredits = await fetchData(
     `movie/${id}/credits?language=en-US`,
     {
@@ -31,9 +32,24 @@ export default async function page({
       next: 3600,
     }
   );
+  const collectionId = movieDetail.belongs_to_collection.id ?? 0;
 
-  const movieCast = resultLimit(movieCastCredits.cast, 6);
-  const movieVideos = resultLimit(movieVideosData.results, 6);
+  const movieCollectionData = await fetchData(
+    `collection/${collectionId}?language=en-US`,
+    {
+      next: 3600,
+    }
+  );
+
+  const movieCast = movieCastCredits.cast
+    ? resultLimit(movieCastCredits.cast, 6)
+    : [];
+  const movieVideos = movieVideosData.results
+    ? resultLimit(movieVideosData.results, 6)
+    : [];
+  const movieCollections = movieCollectionData.parts
+    ? resultLimit(movieCollectionData.parts, 6)
+    : [];
 
   const movieDirect = generateCrewDepartement(
     movieCastCredits.crew,
@@ -166,6 +182,18 @@ export default async function page({
                 </Link>
               </div>
             </PageBodyLayout>
+          )}
+          {!!movieCollections && movieCollections.length > 0 && (
+            <FullPageBodyLayout>
+              <h2 className="text-2xl text-yellow-300 pb-6">
+                Movie Collection
+              </h2>
+              <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-3 grid-cols-6 gap-6">
+                {movieCollections.map((collection, index) => (
+                  <MovieCardItem key={index} movie={collection} />
+                ))}
+              </div>
+            </FullPageBodyLayout>
           )}
           {!!movieVideos && (
             <FullPageBodyLayout>

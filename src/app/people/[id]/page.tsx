@@ -4,8 +4,8 @@ import HeadlineTitle from "@/components/layout/HeadlineTitle/HeadlineTitle";
 import FullPageBodyLayout from "@/components/layout/element/FullPageBodyLayout";
 import PageBodyLayout from "@/components/layout/element/PageBodyLayout";
 import MovieCardItem from "@/components/ui/MovieCardItem/MovieCardItem";
+import { resultLimit } from "@/utils/dataLimit";
 import getDate from "@/utils/getDate";
-import resultLimit from "@/utils/resultLimit";
 import Link from "next/link";
 
 export default async function page({
