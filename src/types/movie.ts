@@ -1,7 +1,7 @@
 type movieProps = {
   adult: boolean;
   backdrop_path?: string;
-  genre_ids?: genreProps[];
+  genre_ids?: genreProps[] | number[];
   id: number;
   original_language: string;
   original_title: string;
