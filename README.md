@@ -35,7 +35,12 @@ Check the website: <br>
     - Cast or Crew Detail page
 - Video Information
     - Video List of a movie
- 
+- Cast Information
+    - Birth Place
+    - Biography
+    - Top 6 Movies Played List
+- Cast Movie Infromation
+    - List of Movies Played
 - Search
     - Movie Home Page
 
