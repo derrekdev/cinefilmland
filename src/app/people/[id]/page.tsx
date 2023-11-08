@@ -1,8 +1,12 @@
 import { fetchData } from "@/components/hooks/movie";
 import HeadlineImage from "@/components/layout/HeadlineImage/HeadlineImage";
 import HeadlineTitle from "@/components/layout/HeadlineTitle/HeadlineTitle";
+import FullPageBodyLayout from "@/components/layout/element/FullPageBodyLayout";
 import PageBodyLayout from "@/components/layout/element/PageBodyLayout";
+import MovieCardItem from "@/components/ui/MovieCardItem/MovieCardItem";
 import getDate from "@/utils/getDate";
+import resultLimit from "@/utils/resultLimit";
+import Link from "next/link";
 
 export default async function page({
   params: { id },
@@ -12,6 +16,15 @@ export default async function page({
   const personDetails = await fetchData(`person/${id}?language=en-US`, {
     next: 3600,
   });
+
+  const movieCredits = await fetchData(
+    `person/${id}/movie_credits?language=en-US`,
+    {
+      next: 3600,
+    }
+  );
+
+  const personCredits = resultLimit(movieCredits.cast, 6);
 
   return (
     <main className="pt-24">
@@ -63,6 +76,28 @@ export default async function page({
                 <p>{personDetails.biography}</p>
               </div>
             </PageBodyLayout>
+          )}
+
+          {!!personCredits && (
+            <FullPageBodyLayout>
+              <h2 className="text-2xl text-yellow-300 pb-6">Movies Played</h2>
+              <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-3 grid-cols-6 gap-6">
+                {personCredits.length > 0 &&
+                  personCredits.map((personCredit, index) => (
+                    <MovieCardItem key={index} movie={personCredit} />
+                  ))}
+              </div>
+              {movieCredits.cast.length > 6 && (
+                <div className="flex justify-center pt-10">
+                  <Link
+                    href={`/people/movie/${id}`}
+                    className="text-center w-60 p-2 bg-yellow-300 text-neutral-900 font-semi bold uppercase block rounded-xl hover:bg-yellow-200 transition-all"
+                  >
+                    View More
+                  </Link>
+                </div>
+              )}
+            </FullPageBodyLayout>
           )}
         </>
       )}
