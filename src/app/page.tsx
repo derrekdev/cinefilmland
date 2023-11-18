@@ -1,6 +1,7 @@
 import { fetchData } from "@/components/hooks/movie";
 import Initiate from "@/components/layout/Provider/Provider";
 import MovieList from "@/components/ui/MovieList/MovieList";
+import MovieListLoading from "@/components/ui/MovieListLoading/MovieListLoading";
 import HomeHero from "@/features/Home/HomeHero/HomeHero";
 import { resultLimit } from "@/utils/dataLimit";
 import { Suspense } from "react";
@@ -21,7 +22,7 @@ export default async function Home() {
       <Initiate>
         <HomeHero />
 
-        <Suspense fallback={<p>Loading.......</p>}>
+        <Suspense fallback={<MovieListLoading addClassName="md:grid-cols-5" />}>
           <MovieList
             title="Trending"
             data={resultLimit(movieTrending.results, 5)}
@@ -29,24 +30,31 @@ export default async function Home() {
             addClassName="md:grid-cols-5"
           />
         </Suspense>
-        <MovieList
-          title="Popular"
-          data={resultLimit(moviePopular.results, 5)}
-          btnHref="/movie_popular"
-          addClassName="md:grid-cols-5"
-        />
-        <MovieList
-          title="Upcoming"
-          data={resultLimit(movieUpcoming.results, 5)}
-          btnHref="/movie_upcoming"
-          addClassName="md:grid-cols-5"
-        />
-        <MovieList
-          title="Discover"
-          data={resultLimit(movieDiscover.results, 5)}
-          btnHref="/movie_discover"
-          addClassName="md:grid-cols-5"
-        />
+        {/* <MovieListLoading addClassName="md:grid-cols-5" /> */}
+        <Suspense fallback={<MovieListLoading addClassName="md:grid-cols-5" />}>
+          <MovieList
+            title="Popular"
+            data={resultLimit(moviePopular.results, 5)}
+            btnHref="/movie_popular"
+            addClassName="md:grid-cols-5"
+          />
+        </Suspense>
+        <Suspense fallback={<MovieListLoading addClassName="md:grid-cols-5" />}>
+          <MovieList
+            title="Upcoming"
+            data={resultLimit(movieUpcoming.results, 5)}
+            btnHref="/movie_upcoming"
+            addClassName="md:grid-cols-5"
+          />
+        </Suspense>
+        <Suspense fallback={<MovieListLoading addClassName="md:grid-cols-5" />}>
+          <MovieList
+            title="Discover"
+            data={resultLimit(movieDiscover.results, 5)}
+            btnHref="/movie_discover"
+            addClassName="md:grid-cols-5"
+          />
+        </Suspense>
       </Initiate>
     </main>
   );
