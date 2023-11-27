@@ -60,7 +60,8 @@ Check the website: <br>
 - add trending actors page(not priority)
 - about page(still ongoing, need to add correct information)
 - add loading page(trending, popular, discover and upcoming on development, other pages have not yet started)
-- add search with filter page for movies
+- add search with filter page for movies(not priority)
+- add loading animation for pages and components(main page has loading, home page has suspense but still need to apply on other page components)
 
 <br>
 
