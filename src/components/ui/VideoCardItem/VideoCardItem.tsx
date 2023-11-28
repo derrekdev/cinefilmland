@@ -4,7 +4,7 @@ import defaultImage from "@/../public/default_poster.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function MovieCardItem({ movie }: { movie: movieProps }) {
+export default function VideoCardItem({ movie }: { movie: movieProps }) {
   // let [showDefaultImage, setShowDefaultImage] = useState(false);
 
   return (

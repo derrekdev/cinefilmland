@@ -3,7 +3,7 @@ import HeadlineImage from "@/components/layout/HeadlineImage/HeadlineImage";
 import HeadlineTitle from "@/components/layout/HeadlineTitle/HeadlineTitle";
 import FullPageBodyLayout from "@/components/layout/element/FullPageBodyLayout";
 import PageBodyLayout from "@/components/layout/element/PageBodyLayout";
-import MovieCardItem from "@/components/ui/MovieCardItem/MovieCardItem";
+import VideoCardItem from "@/components/ui/VideoCardItem/VideoCardItem";
 import { resultLimit } from "@/utils/dataLimit";
 import getDate from "@/utils/getDate";
 import Link from "next/link";
@@ -84,7 +84,7 @@ export default async function page({
               <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-3 grid-cols-6 gap-6">
                 {personCredits.length > 0 &&
                   personCredits.map((personCredit, index) => (
-                    <MovieCardItem key={index} movie={personCredit} />
+                    <VideoCardItem key={index} movie={personCredit} />
                   ))}
               </div>
               {movieCredits.cast.length > 6 && (

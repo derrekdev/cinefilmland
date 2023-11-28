@@ -1,6 +1,6 @@
 "use client";
 
-import MovieCardItem from "@/components/ui/MovieCardItem/MovieCardItem";
+import MovieCardItem from "@/components/ui/VideoCardItem/VideoCardItem";
 import { useState } from "react";
 import HomeSectionLayout from "../../components/layout/element/HomeSectionLayout";
 

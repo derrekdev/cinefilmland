@@ -1,7 +1,7 @@
 "use client";
 
-import MovieList from "@/components/ui/MovieList/MovieList";
 import Pagination from "@/components/ui/Pagination/Pagination";
+import MovieList from "@/components/ui/VideoList/VideoList";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Videolist({

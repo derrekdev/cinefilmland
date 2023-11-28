@@ -1,8 +1,8 @@
 import HomeSectionLayout from "@/components/layout/element/HomeSectionLayout";
-import MovieItemLoading from "../MovieItemLoading/MovieItemLoading";
+import VideoItemLoading from "../VideoItemLoading/VideoItemLoading";
 import { Skeleton } from "../skeleton";
 
-export default function MovieListLoading({
+export default function VideoListLoading({
   addClassName,
 }: {
   addClassName: string;
@@ -14,7 +14,7 @@ export default function MovieListLoading({
         className={`grid grid-flow-row grid-cols-2 xs:grid-cols-3 gap-4 overflow-hidden ${addClassName}`}
       >
         {Array.apply(null, Array(5)).map((x, i) => (
-          <MovieItemLoading />
+          <VideoItemLoading />
         ))}
       </div>
       <div className="text-center  pt-6 flex justify-center"></div>

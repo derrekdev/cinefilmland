@@ -2,7 +2,7 @@ import { fetchData } from "@/components/hooks/movie";
 import HeadlineImage from "@/components/layout/HeadlineImage/HeadlineImage";
 import HeadlineTitle from "@/components/layout/HeadlineTitle/HeadlineTitle";
 import FullPageBodyLayout from "@/components/layout/element/FullPageBodyLayout";
-import MovieCardItem from "@/components/ui/MovieCardItem/MovieCardItem";
+import VideoCardItem from "@/components/ui/VideoCardItem/VideoCardItem";
 
 export default async function page({
   params: { id },
@@ -47,7 +47,7 @@ export default async function page({
                 {movieCredits.cast.length > 0 &&
                   movieCredits.cast.map(
                     (movieCredit: movieProps, index: number) => (
-                      <MovieCardItem key={index} movie={movieCredit} />
+                      <VideoCardItem key={index} movie={movieCredit} />
                     )
                   )}
               </div>

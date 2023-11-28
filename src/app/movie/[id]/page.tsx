@@ -3,8 +3,8 @@ import HeadlineImage from "@/components/layout/HeadlineImage/HeadlineImage";
 import HeadlineTitle from "@/components/layout/HeadlineTitle/HeadlineTitle";
 import FullPageBodyLayout from "@/components/layout/element/FullPageBodyLayout";
 import PageBodyLayout from "@/components/layout/element/PageBodyLayout";
-import MovieCardItem from "@/components/ui/MovieCardItem/MovieCardItem";
 import PeopleCardItem from "@/components/ui/PeopleCardItem/PeopleCardItem";
+import VideoCardItem from "@/components/ui/VideoCardItem/VideoCardItem";
 import YoutubePlayer from "@/components/ui/YoutubePlayer/YoutubePlayer";
 import { generateMoney } from "@/utils/convertNumber";
 import convertTime from "@/utils/convertTime";
@@ -190,7 +190,7 @@ export default async function page({
               </h2>
               <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-3 grid-cols-6 gap-6">
                 {movieCollections.map((collection, index) => (
-                  <MovieCardItem key={index} movie={collection} />
+                  <VideoCardItem key={index} movie={collection} />
                 ))}
               </div>
             </FullPageBodyLayout>

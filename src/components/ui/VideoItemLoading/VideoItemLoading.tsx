@@ -1,6 +1,6 @@
 import { Skeleton } from "../skeleton";
 
-export default function MovieItemLoading() {
+export default function VideoItemLoading() {
   return (
     <div className="p-2 bg-neutral-800 transition-all rounded-[10px] group overflow-hidden">
       <div className="rounded-[10px] overflow-hidden transition-all h-[366px]">

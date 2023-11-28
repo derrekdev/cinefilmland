@@ -1,5 +1,5 @@
 import HomeSectionLayout from "@/components/layout/element/HomeSectionLayout";
-import MovieItemLoading from "@/components/ui/MovieItemLoading/MovieItemLoading";
+import MovieItemLoading from "@/components/ui/VideoItemLoading/VideoItemLoading";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function loading() {
