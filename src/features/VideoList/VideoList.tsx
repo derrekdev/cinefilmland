@@ -4,7 +4,8 @@ import Pagination from "@/components/ui/Pagination/Pagination";
 import VideoList from "@/components/ui/VideoList/VideoList";
 import { usePathname, useRouter } from "next/navigation";
 
-type dataProps = movieProps[] | seriesProps[];
+// type dataProps = movieProps[] | seriesProps[];
+type dataProps = movieProps[];
 
 export default function Videolist({
   data,

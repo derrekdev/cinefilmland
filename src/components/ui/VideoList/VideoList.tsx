@@ -11,7 +11,8 @@ export default function VideoList({
   btnHref = "",
   addClassName = "",
 }: {
-  data: movieProps[] | seriesProps[];
+  // data: movieProps[] | seriesProps[];
+  data: movieProps[];
   title?: string;
   btnHref?: string;
   addClassName?: string;
