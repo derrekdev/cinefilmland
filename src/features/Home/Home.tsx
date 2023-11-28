@@ -1,6 +1,6 @@
 "use client";
 
-import MovieCardItem from "@/components/ui/VideoCardItem/VideoCardItem";
+import VideoCardItem from "@/components/ui/VideoCardItem/VideoCardItem";
 import { useState } from "react";
 import HomeSectionLayout from "../../components/layout/element/HomeSectionLayout";
 
@@ -20,7 +20,7 @@ export default function Home({ data }: { data: movieDataProps<movieProps[]> }) {
         {data.movieDiscover &&
           data.movieDiscover.length > 0 &&
           data.movieDiscover.map((discover, index) => (
-            <MovieCardItem key={index} movie={discover} />
+            <VideoCardItem key={index} data={discover} />
           ))}
       </div>
     </HomeSectionLayout>

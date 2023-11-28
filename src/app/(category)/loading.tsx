@@ -1,5 +1,5 @@
 import HomeSectionLayout from "@/components/layout/element/HomeSectionLayout";
-import MovieItemLoading from "@/components/ui/VideoItemLoading/VideoItemLoading";
+import VideoItemLoading from "@/components/ui/VideoItemLoading/VideoItemLoading";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function loading() {
@@ -33,7 +33,7 @@ export default function loading() {
           <div
             className={`grid grid-flow-row grid-cols-2 xs:grid-cols-3 gap-4 overflow-hidden md:grid-cols-4 lg:grid-cols-5`}
           >
-            {[...Array(20).map((x, i) => <MovieItemLoading key={i} />)]}
+            {[...Array(20).map((x, i) => <VideoItemLoading key={i} />)]}
           </div>
         </HomeSectionLayout>
       </section>

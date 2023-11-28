@@ -1,8 +1,10 @@
 "use client";
 
 import Pagination from "@/components/ui/Pagination/Pagination";
-import MovieList from "@/components/ui/VideoList/VideoList";
+import VideoList from "@/components/ui/VideoList/VideoList";
 import { usePathname, useRouter } from "next/navigation";
+
+type dataProps = movieProps[] | seriesProps[];
 
 export default function Videolist({
   data,
@@ -10,7 +12,7 @@ export default function Videolist({
   pageNumber,
   pageMax = 500,
 }: {
-  data: movieProps[];
+  data: dataProps;
   pageTotal: number;
   pageNumber: number;
   pageMax?: number;
@@ -52,7 +54,7 @@ export default function Videolist({
       />
 
       {data && data.length > 0 && (
-        <MovieList data={data} addClassName="md:grid-cols-4 lg:grid-cols-5" />
+        <VideoList data={data} addClassName="md:grid-cols-4 lg:grid-cols-5" />
       )}
 
       <Pagination

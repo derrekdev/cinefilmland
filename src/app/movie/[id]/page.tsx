@@ -190,7 +190,7 @@ export default async function page({
               </h2>
               <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-3 grid-cols-6 gap-6">
                 {movieCollections.map((collection, index) => (
-                  <VideoCardItem key={index} movie={collection} />
+                  <VideoCardItem key={index} data={collection} />
                 ))}
               </div>
             </FullPageBodyLayout>

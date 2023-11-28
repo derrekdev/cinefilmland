@@ -14,7 +14,7 @@ export default function VideoListLoading({
         className={`grid grid-flow-row grid-cols-2 xs:grid-cols-3 gap-4 overflow-hidden ${addClassName}`}
       >
         {Array.apply(null, Array(5)).map((x, i) => (
-          <VideoItemLoading />
+          <VideoItemLoading key={i} />
         ))}
       </div>
       <div className="text-center  pt-6 flex justify-center"></div>

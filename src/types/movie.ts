@@ -1,4 +1,5 @@
 type movieProps = {
+  videoType: "movie";
   adult: boolean;
   backdrop_path?: string;
   genre_ids?: genreProps[] | number[];

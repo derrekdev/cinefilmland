@@ -4,12 +4,67 @@ import defaultImage from "@/../public/default_poster.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function VideoCardItem({ movie }: { movie: movieProps }) {
+// type videoPropertyProps = "movie" | "series"
+type videoPropertyProps = movieProps | seriesProps;
+
+const currentNameFunction: React.FC<videoPropertyProps> = (props) => {
+  if (props.videoType === "movie") return props.title;
+  else if (props.videoType === "series") return props.name;
+};
+
+export default function VideoCardItem({ data }: { data: videoPropertyProps }) {
+  // function processData(data: movieProps | seriesProps){
+  //   if (data.videoType === "movie")
+  // }
+
+  // function isSampleOne(props: Props): props is SamplePropsOne {
+  //   return 'name' in props;
+  // }
+
+  // const currentName: React.FC<videoPropertyProps> = props => {
+  //   isSampleOne(props) ? {return props.title} : return props.name;
+  // }
+
+  let currentName = currentNameFunction(data);
+
+  // data.videoType === "movie"
+  //   ? (currentName = data.title)
+  //   : (currentName = data.name);
+
   // let [showDefaultImage, setShowDefaultImage] = useState(false);
+
+  // const name = () => {
+  //   if (data.videoType === "movie") return data.title;
+  //   else if (data.videoType === "series") return data.name;
+  //   // else return "";
+  // };
+  // let currentName = "";
+
+  // console.log(data.videoType);
+
+  // if (data.videoType === "movie") {
+  //   console.log("trigger movie");
+  //   currentName = data.title ?? "";
+  // } else if (data.videoType === "series") {
+  //   console.log("trigger series");
+  //   currentName = data.name ?? "";
+  // }
+
+  // switch (data.videoType) {
+  //   case "movie":
+  //     currentName = data.title ?? "";
+  //     break;
+  //   case "series":
+  //     currentName = data.name ?? "";
+  //     break;
+  // }
+
+  // console.log(data.title, data.name);
+  // console.log(currentName);
 
   return (
     <Link
-      href={`/movie/${movie.id}`}
+      href={`/movie/${data.id}`}
       className="p-2 bg-neutral-800 hover:bg-neutral-700 transition-all rounded-[10px] group overflow-hidden"
     >
       <div className="rounded-[10px] overflow-hidden transition-all">
@@ -20,11 +75,12 @@ export default function VideoCardItem({ movie }: { movie: movieProps }) {
         )} */}
         <Image
           src={`${
-            movie.poster_path
-              ? "https://image.tmdb.org/t/p/w300" + movie.poster_path
+            data.poster_path
+              ? "https://image.tmdb.org/t/p/w300" + data.poster_path
               : defaultImage.src
           }`}
-          alt={`${movie.title} thumbnail`}
+          alt={`${data.title ?? data.name} thumbnail`}
+          // alt={`${currentName} thumbnail`}
           height={355}
           width={250}
           className="group-hover:scale-110 transition-all"
@@ -38,7 +94,8 @@ export default function VideoCardItem({ movie }: { movie: movieProps }) {
         />
       </div>
       <h3 className="text-left pt-2 text-[2.5vw] md:text-[1.8vw] lg:text-base font-base text-yellow-300">
-        {movie.title}
+        {data.title ?? data.name}
+        {/* {currentName} */}
       </h3>
     </Link>
   );

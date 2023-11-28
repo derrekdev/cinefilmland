@@ -11,7 +11,7 @@ export default function VideoList({
   btnHref = "",
   addClassName = "",
 }: {
-  data: movieProps[];
+  data: movieProps[] | seriesProps[];
   title?: string;
   btnHref?: string;
   addClassName?: string;
@@ -28,9 +28,7 @@ export default function VideoList({
       >
         {data &&
           data.length > 0 &&
-          data.map((trending, index) => (
-            <VideoCardItem key={index} movie={trending} />
-          ))}
+          data.map((item, index) => <VideoCardItem key={index} data={item} />)}
         {!data && [...Array(6)].map((x, i) => <VideoItemLoading key={i} />)}
       </div>
       {btnHref && (

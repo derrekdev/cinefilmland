@@ -84,7 +84,7 @@ export default async function page({
               <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-3 grid-cols-6 gap-6">
                 {personCredits.length > 0 &&
                   personCredits.map((personCredit, index) => (
-                    <VideoCardItem key={index} movie={personCredit} />
+                    <VideoCardItem key={index} data={personCredit} />
                   ))}
               </div>
               {movieCredits.cast.length > 6 && (

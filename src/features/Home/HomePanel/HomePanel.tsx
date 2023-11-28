@@ -25,15 +25,15 @@ export default function HomePanel({
         </Button>
         <Button
           className="text-center p-2 bg-yellow-300 text-neutral-900 font-bold uppercase block rounded-2xl hover:bg-yellow-200 transition-all"
-          // disabled={videoPanelType === "series" ?? false}
-          disabled
+          disabled={videoPanelType === "series" ?? false}
+          // disabled
           onClick={() => setVideoPanelType("series")}
         >
           TV Series
         </Button>
       </div>
       {videoPanelType === "movie" && !!movieChildren && <>{movieChildren}</>}
-      {videoPanelType === "movie" && !!seriesChildren && <>{seriesChildren}</>}
+      {videoPanelType === "series" && !!seriesChildren && <>{seriesChildren}</>}
     </>
   );
 }

@@ -47,7 +47,7 @@ export default async function page({
                 {movieCredits.cast.length > 0 &&
                   movieCredits.cast.map(
                     (movieCredit: movieProps, index: number) => (
-                      <VideoCardItem key={index} movie={movieCredit} />
+                      <VideoCardItem key={index} data={movieCredit} />
                     )
                   )}
               </div>

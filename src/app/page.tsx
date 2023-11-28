@@ -24,6 +24,24 @@ export default async function Home() {
     { next: { revalidate: 3600 } }
   );
 
+  const seriesTrending = await fetchData(
+    "trending/tv/week?language=en-US&page=1",
+    { next: { revalidate: 3600 } }
+  );
+
+  const seriesPopular = await fetchData("tv/popular?language=en-US&page=1", {
+    next: { revalidate: 3600 },
+  });
+
+  const seriesDiscover = await fetchData(
+    "discover/tv?include_adult=false&ilanguage=en-US&include_video=false&page=1&sort_by=popularity.desc",
+    { next: { revalidate: 3600 } }
+  );
+
+  // console.log("movieTrending.results", movieTrending.results);
+
+  console.log("seriesDiscover.results", seriesDiscover.results);
+
   return (
     <main className="">
       <Initiate>
@@ -67,7 +85,41 @@ export default async function Home() {
                 <VideoList
                   title="Discover"
                   data={resultLimit(movieDiscover.results, 5)}
-                  btnHref="/movie_discover"
+                  btnHref="/"
+                  addClassName="md:grid-cols-5"
+                />
+              </Suspense>
+            </>
+          }
+          seriesChildren={
+            <>
+              <Suspense
+                fallback={<VideoListLoading addClassName="md:grid-cols-5" />}
+              >
+                <VideoList
+                  title="Trending"
+                  data={resultLimit(seriesTrending.results, 5)}
+                  btnHref="/"
+                  addClassName="md:grid-cols-5"
+                />
+              </Suspense>
+              <Suspense
+                fallback={<VideoListLoading addClassName="md:grid-cols-5" />}
+              >
+                <VideoList
+                  title="Popular"
+                  data={resultLimit(seriesPopular.results, 5)}
+                  btnHref="/movie_popular"
+                  addClassName="md:grid-cols-5"
+                />
+              </Suspense>
+              <Suspense
+                fallback={<VideoListLoading addClassName="md:grid-cols-5" />}
+              >
+                <VideoList
+                  title="Upcoming"
+                  data={resultLimit(seriesDiscover.results, 5)}
+                  btnHref="/"
                   addClassName="md:grid-cols-5"
                 />
               </Suspense>
