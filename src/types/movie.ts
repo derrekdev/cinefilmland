@@ -1,5 +1,5 @@
-type movieProps = {
-  videoType: "movie";
+interface movieProps {
+  videoType?: "movie";
   adult: boolean;
   backdrop_path?: string;
   genre_ids?: genreProps[] | number[];
@@ -16,7 +16,8 @@ type movieProps = {
   vote_count: number;
   runtime?: number;
   belongs_to_collection?: collectionProps;
-};
+  name?: string;
+}
 
 type collectionProps = {
   id: number;

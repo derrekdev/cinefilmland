@@ -5,14 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 // type videoPropertyProps = "movie" | "series"
-type videoPropertyProps = movieProps | seriesProps;
+type videoPropertyProps = Partial<movieProps> | Partial<seriesProps>;
 
-const currentNameFunction: React.FC<videoPropertyProps> = (props) => {
-  if (props.videoType === "movie") return props.title;
-  else if (props.videoType === "series") return props.name;
-};
+// const currentNameFunction: React.FC<videoPropertyProps> = (props) => {
+//   if (props.videoType === "movie") return props.title;
+//   else if (props.videoType === "series") return props.name;
+// };
 
-export default function VideoCardItem({ data }: { data: videoPropertyProps }) {
+export default function VideoCardItem({ data }: { data: Partial<movieProps> }) {
   // function processData(data: movieProps | seriesProps){
   //   if (data.videoType === "movie")
   // }
@@ -25,7 +25,11 @@ export default function VideoCardItem({ data }: { data: videoPropertyProps }) {
   //   isSampleOne(props) ? {return props.title} : return props.name;
   // }
 
-  let currentName = currentNameFunction(data);
+  // console.log("data", data);
+
+  // let currentName = currentNameFunction(data);
+
+  // let currentName = "";
 
   // data.videoType === "movie"
   //   ? (currentName = data.title)

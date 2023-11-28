@@ -1,5 +1,5 @@
-type seriesProps = {
-  videoType: "series";
+interface seriesProps {
+  videoType?: "series";
   adult?: boolean;
   backdrop_path?: string;
   genre_ids?: genreProps[] | number[];
@@ -19,4 +19,4 @@ type seriesProps = {
   vote_count: number;
   runtime?: number;
   // belongs_to_collection?: collectionProps;
-};
+}
