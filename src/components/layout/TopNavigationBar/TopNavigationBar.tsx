@@ -35,7 +35,7 @@ const topLink: topLinkProps[] = [
     name: "TV",
     href: "/series_trending",
     status: "dev",
-    compare: ["/series_trending", "/series_popular"],
+    compare: ["/series_trending", "/series_popular", "/series_discovery"],
   },
   {
     name: "About",
@@ -136,7 +136,7 @@ export default function TopNavigationBar() {
         id="nav-content"
       > */}
       <div
-        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto lg:block  max-lg:pt-0 transition-all ${styles.navContent} `}
+        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto max-lg:pt-0 transition-all ${styles.navContent} `}
         id="nav-content"
       >
         {/* <ul

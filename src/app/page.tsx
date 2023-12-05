@@ -38,10 +38,6 @@ export default async function Home() {
     { next: { revalidate: 3600 } }
   );
 
-  // console.log("movieTrending.results", movieTrending.results);
-
-  console.log("seriesDiscover.results", seriesDiscover.results);
-
   return (
     <main className="">
       <Initiate>
@@ -117,9 +113,9 @@ export default async function Home() {
                 fallback={<VideoListLoading addClassName="md:grid-cols-5" />}
               >
                 <VideoList
-                  title="Upcoming"
+                  title="Discovery"
                   data={resultLimit(seriesDiscover.results, 5)}
-                  btnHref="/"
+                  btnHref="/series_discovery"
                   addClassName="md:grid-cols-5"
                 />
               </Suspense>

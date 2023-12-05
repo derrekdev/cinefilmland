@@ -46,8 +46,8 @@ const seriesLinks = [
     href: "/series_popular",
   },
   {
-    name: "Upcoming",
-    href: "/#",
+    name: "Discover",
+    href: "/series_discovery",
   },
   // {
   //   name: "Discover",
