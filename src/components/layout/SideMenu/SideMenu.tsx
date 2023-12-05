@@ -9,7 +9,7 @@ import {
 
 import styles from "./sideMenu.module.scss";
 
-const movieuLinks = [
+const movieLinks = [
   {
     name: "Search Movie",
     href: "/movie_search",
@@ -32,7 +32,30 @@ const movieuLinks = [
   },
 ];
 
-type linkTypeProps = "movie" | "tv";
+const seriesLinks = [
+  // {
+  //   name: "Search Movie",
+  //   href: "/movie_search",
+  // },
+  {
+    name: "Trending",
+    href: "/series_trending",
+  },
+  {
+    name: "Popular",
+    href: "/#",
+  },
+  {
+    name: "Upcoming",
+    href: "/#",
+  },
+  // {
+  //   name: "Discover",
+  //   href: "/movie_discover",
+  // },
+];
+
+type linkTypeProps = "movie" | "series";
 
 interface linkProps {
   name: string;
@@ -44,7 +67,11 @@ export default function SideMenu({ type = "movie" }: { type?: linkTypeProps }) {
 
   switch (type) {
     case "movie":
-      sideMenuMovieuLinks = movieuLinks;
+      sideMenuMovieuLinks = movieLinks;
+      break;
+
+    case "series":
+      sideMenuMovieuLinks = seriesLinks;
       break;
 
     default:

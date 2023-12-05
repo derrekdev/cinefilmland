@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import React from "react";
 
 type badgeStatusProps = {
   variantType?:
@@ -12,7 +13,7 @@ type badgeStatusProps = {
   addClass?: string;
 };
 
-export default function BadgeStatus({
+function BadgeStatus({
   variantType = "default",
   description,
   addClass,
@@ -28,3 +29,5 @@ export default function BadgeStatus({
     </Badge>
   );
 }
+
+export default React.memo(BadgeStatus);

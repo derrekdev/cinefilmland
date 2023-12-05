@@ -24,6 +24,7 @@ const topLink: topLinkProps[] = [
     href: "/movie_trending",
     // status: "dev",
     compare: [
+      "/movie_search",
       "/movie_trending",
       "/movie_popular",
       "/movie_upcoming",
@@ -32,8 +33,9 @@ const topLink: topLinkProps[] = [
   },
   {
     name: "TV",
-    href: "/#",
+    href: "/series_trending",
     status: "dev",
+    compare: ["/series_trending"],
   },
   {
     name: "About",
