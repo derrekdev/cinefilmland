@@ -99,7 +99,7 @@ export default async function Home() {
                 <VideoList
                   title="Trending"
                   data={resultLimit(seriesTrending.results, 5)}
-                  btnHref="/"
+                  btnHref="/series_trending"
                   addClassName="md:grid-cols-5"
                 />
               </Suspense>
@@ -109,7 +109,7 @@ export default async function Home() {
                 <VideoList
                   title="Popular"
                   data={resultLimit(seriesPopular.results, 5)}
-                  btnHref="/movie_popular"
+                  btnHref="/series_popular"
                   addClassName="md:grid-cols-5"
                 />
               </Suspense>

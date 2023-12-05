@@ -10,10 +10,10 @@ import {
 import styles from "./sideMenu.module.scss";
 
 const movieLinks = [
-  {
-    name: "Search Movie",
-    href: "/movie_search",
-  },
+  // {
+  //   name: "Search Movie",
+  //   href: "/movie_search",
+  // },
   {
     name: "Trending",
     href: "/movie_trending",
@@ -43,7 +43,7 @@ const seriesLinks = [
   },
   {
     name: "Popular",
-    href: "/#",
+    href: "/series_popular",
   },
   {
     name: "Upcoming",
