@@ -18,14 +18,14 @@ export default function HomePanel({
       <div className="container flex flex-row justify-end gap-4 py-10 lg:px-5  ">
         <Button
           className="text-center p-2 bg-yellow-300 text-neutral-900 font-bold uppercase block rounded-2xl hover:bg-yellow-200 transition-all"
-          disabled={videoPanelType === "movie" ?? false}
+          disabled={videoPanelType === "movie"}
           onClick={() => setVideoPanelType("movie")}
         >
           Movie
         </Button>
         <Button
           className="text-center p-2 bg-yellow-300 text-neutral-900 font-bold uppercase block rounded-2xl hover:bg-yellow-200 transition-all"
-          disabled={videoPanelType === "series" ?? false}
+          disabled={videoPanelType === "series"}
           // disabled
           onClick={() => setVideoPanelType("series")}
         >
