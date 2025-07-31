@@ -20,6 +20,7 @@ export default async function page({
 }) {
   const { getHoursMins } = convertTime();
   const movieDetail = await fetchData(`movie/${id}`, { next: 3600 });
+
   const movieCastCredits = await fetchData(
     `movie/${id}/credits?language=en-US`,
     {
@@ -32,7 +33,11 @@ export default async function page({
       next: 3600,
     }
   );
-  const collectionId = movieDetail.belongs_to_collection.id ?? 0;
+
+  const collectionId =
+    movieDetail.belongs_to_collection !== null
+      ? (movieDetail.belongs_to_collection.id ?? 0)
+      : 0;
 
   const movieCollectionData = await fetchData(
     `collection/${collectionId}?language=en-US`,
