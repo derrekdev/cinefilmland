@@ -1,19 +1,20 @@
 import { fetchData } from "@/components/hooks/movie";
 import Videolist from "@/features/VideoList/VideoList";
+import { SearchParamsType } from "@/types/search";
 import { handlePageNumber } from "@/utils/handleURL";
 
 export default async function page({
   searchParams,
 }: {
-  searchParams: {
-    [key: string]: string;
-  };
+  searchParams?: SearchParamsType;
 }) {
+  const searchType = await searchParams;
+  const currentPage = (searchType?.page || 1).toString();
   const movieUpcoming = await fetchData(
-    `movie/upcoming?language=en-US&page=${handlePageNumber(searchParams.page)}`,
+    `movie/upcoming?language=en-US&page=${handlePageNumber(currentPage)}`,
     { next: 60 }
   );
-  const page = searchParams.page ? parseInt(searchParams.page) : 1;
+  const page = currentPage ? parseInt(currentPage) : 1;
 
   return (
     <div className="lg:w-10/12 pt-32">
