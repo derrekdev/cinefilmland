@@ -1,22 +1,23 @@
 import { fetchData } from "@/components/hooks/movie";
 import Videolist from "@/features/VideoList/VideoList";
+import { SearchParamsType } from "@/types/search";
 import { handlePageNumber } from "@/utils/handleURL";
 
 export default async function page({
   searchParams,
 }: {
-  searchParams: {
-    [key: string]: string;
-  };
+  searchParams?: SearchParamsType;
 }) {
+  const searchType = await searchParams;
+  const currentPage = (searchType?.page || 1).toString();
   const seriesDiscover = await fetchData(
     `discover/tv?include_adult=false&ilanguage=en-US&include_video=false&sort_by=popularity.desc&page=${handlePageNumber(
-      searchParams.page
+      currentPage
     )}
     }`,
     { next: 60 }
   );
-  const page = searchParams.page ? parseInt(searchParams.page) : 1;
+  const page = currentPage ? parseInt(currentPage) : 1;
 
   return (
     <div className="lg:w-10/12 pt-32">
