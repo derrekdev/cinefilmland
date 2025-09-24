@@ -4,10 +4,11 @@ import HeadlineTitle from "@/components/layout/HeadlineTitle/HeadlineTitle";
 import PeopleCrewList from "@/features/PeopleCrewList/PeopleCrewList";
 
 export default async function page({
-  params: { id },
+  params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const movieDetail = await fetchData(`movie/${id}`, { next: 60 });
   const movieCastCredits = await fetchData(
     `movie/${id}/credits?language=en-US`,

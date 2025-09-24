@@ -14,10 +14,11 @@ import { LiaImdb } from "react-icons/lia";
 import { PiLinkSimpleBold } from "react-icons/pi";
 
 export default async function page({
-  params: { id },
+  params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const { getHoursMins } = convertTime();
   const movieDetail = await fetchData(`movie/${id}`, { next: 3600 });
 
